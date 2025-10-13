@@ -8,5 +8,7 @@ h1 {
   display: block;
   @include mixins.img-size(100%, 0px);
   background-color: #000;
+  // banner darkmode
 }
+
 
