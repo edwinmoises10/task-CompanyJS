@@ -184,8 +184,11 @@ const createNewTask = (user, text) => {
 const editNewTask = (task, newDescription, newStatus) => {
     task.description = newDescription
     task.status = newStatus
+    task.date = Date().toLocaleString()
     updateLocalStorageUser(task)
 }
+
+
 
 const logginSesion = () => {
 
@@ -331,6 +334,16 @@ const taskCreated = () => {
                 editTaskSave.onclick = () => {
                     editNewTask(foundTask, textArea1.value, statusTask.value)
                     taskCreated()
+                }
+
+                let deleteTask = document.getElementById("deleteTask")
+                deleteTask.onclick = () => {
+                    const taskIndex = personTask.tasks.findIndex(task => task.taskNumber === taskIDNumber)
+                    if (taskIndex > -1) {
+                        personTask.tasks.splice(taskIndex, 1)
+                        taskCreated()
+                        
+                    }
                 }
             }
 
