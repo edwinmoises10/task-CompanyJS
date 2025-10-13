@@ -11,4 +11,76 @@ h1 {
   // banner darkmode
 }
 
+.buttonAccess {
+  @include mixins.general-flex(row, space-around, center);
+  gap: 10px;
+  .btn {
+    background-color: rgba(40, 101, 255, 0.614);
+    color: #000000;
+  }
+  .modal {
+    .modal-content {
+      .modal-header {
+        background-color: #9b451a98;
+        .modal-title {
+          color: #261111;
+        }
+      }
+      .col-12 {
+        @include mixins.general-flex(row, center, end);
+      }
+    }
+  }
+}
 
+.newUsers {
+  @include mixins.general-flex(column, center, center);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 1100px; 
+  background-color: #8089f01e;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+h2 {
+  padding: 1rem;
+}
+.table {
+  text-align: center;
+  align-items: center;
+}
+
+.searchStyle {
+  @include mixins.general-flex(column, center, center);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 1100px; 
+  background-color: #8089f01e;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(179, 99, 99, 0.08);
+  transition: all 0.3s ease;
+ 
+}
+
+.taksAndEdit {
+  @include mixins.general-flex(column, center, center);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 1100px; 
+  background-color: #8089f01e;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(243, 144, 144, 0.08);
+  transition: all 0.3s ease;
+}
+.edit-task {
+  border: none;
+  cursor: pointer;
+}
+.editTask{
+  @include mixins.general-flex(column, center, center);
+ padding: 30px;
+ .form-select{
+  padding: 10px;
+ }
+}

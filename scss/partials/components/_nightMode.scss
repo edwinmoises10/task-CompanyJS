@@ -1,12 +1,33 @@
+@use "../utilities/mixins";
+
 body.nightModeStyle {
-  background-color: #1e1e1e;
+
+
+  h1{
+    color: #ffffff;
+  }
+   h2{
+    color: #ffffff;
+  }
+   h3{
+    color: #ffffff;
+  }
+   h4{
+    color: #ffffff;
+  }
+  background-color: #000000;
   color: #f0f0f0;
 
+  .btn {
+    color: #f0f0f0;
+    background-color: rgb(57, 92, 205);
+  }
+
   .styleHeader {
-    background-color: #1e1e1e;
+    background-color: #000000;
 
     .nightModeHeader {
-      color: #eca814; // este es el amarillo para el SVG
+      color: #eca814; // amarillo sol
       stroke: #ffffff;
       transition: color 0.5s ease, stroke 0.5s ease;
 
@@ -17,12 +38,15 @@ body.nightModeStyle {
     }
   }
   .spanBanner {
-    display: flex;
-    justify-content: center; /* centra horizontalmente */
-    align-items: center; /* centra verticalmente */
-    width: 100%;
-    height: 40px; /* alto del banner */
-    background-color: #f0f0f0;
-    color: #1e1e1e;
+    padding: 14px;
+    @include mixins.general-flex(row, end, center);
+    color: #ffffff;
+    background-color: rgba(109, 143, 255, 0.605);
   }
+}
+.spanBanner {
+  padding: 14px;
+  @include mixins.general-flex(row, end, center);
+  color: #261111;
+  background-color: rgba(57, 92, 205, 0.605);
 }

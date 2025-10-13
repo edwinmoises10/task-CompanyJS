@@ -11,7 +11,7 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <!-- link to CSS -->
     <link rel="stylesheet" href="./styles/style.css">
-        <!-- Script -->
+    <!-- Script -->
     <script defer src="./js/main.js"></script>
 
     <title>Task Company</title>
@@ -51,17 +51,15 @@
 
         <span id="news" class="spanBanner"></span>
 
-        <h1>Company</h1>
+        <h1>Company Tasks</h1>
     </header>
 
     <main>
 
         <!-- user registration -->
-        <section>
-            <!-- Button trigger modal -->
+        <section class="buttonAccess">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">
-                User Registration
-            </button>
+                User Registration</button>
 
             <!-- Modal -->
             <div class="modal fade" id="registerModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -69,7 +67,7 @@
                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="staticBackdropLabel">New Personal</h1>
+                            <h2 class="modal-title fs-5" id="staticBackdropLabel">Create a new user</h2>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -124,26 +122,15 @@
                             </form>
 
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- <div class="alert alert-dark" role="alert" id="">
-                A simple dark alert—check it out!
-            </div> -->
-        </section>
+            <!-- Login Session -->
+            <!-- new code  -->
 
-        <!-- Login Session -->
-        <!-- new code  -->
-
-        <section>
-            <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
-                Log In
-            </button>
+                Log In</button>
 
             <!-- Modal -->
             <div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -151,7 +138,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Sign In first and create a task</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -172,9 +159,9 @@
                                             id="passwordloggin" placeholder="Type your Password">
                                     </div>
                                 </div>
-                                <button id="checkLoggin" type="button" class="btn btn-primary">Sign in</button>
+                                <button id="checkLoggin" type="button" class="btn bnt2 btn-primary">Sign in</button>
                             </form>
-
+                            <br>
                             <div class="form-floating mb-3">
                                 <textarea class="form-control" placeholder="Leave a comment here" id="textArea"
                                     style="height: 100px" disabled></textarea>
@@ -192,7 +179,7 @@
             </div>
         </section>
 
-        <section>
+        <section class="newUsers">
             <h2>Personal Team</h2>
             <!-- Data Results -->
             <table class="table table-striped">
@@ -212,13 +199,15 @@
         </section>
 
 
-        <section>
-            <h3>Search Personal</h3>
+        <section class="searchStyle">
+            <h2>Search Personal</h2>
+
             <form class="row g-3">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <label for="searchPersonalValuelive" class="form-label">Search Personal</label>
                     <input type="text" class="form-control" id="searchPersonalValuelive" required
                         placeholder="Enter a Name">
+
                 </div>
 
 
@@ -236,13 +225,9 @@
                 </table>
         </section>
 
-        <br>
 
-
-        <br>
-
-        <section>
-            <h3>Pending Tasks</h3>
+        <section class="taksAndEdit">
+            <h2>Pending Tasks</h2>
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -251,6 +236,7 @@
                         <th scope="col">Description</th>
                         <th scope="col">Date</th>
                         <th scope="col">Status</th>
+                        <th scope="col">Edit</th>
 
                     </tr>
                 </thead>
@@ -259,8 +245,8 @@
             </table>
 
         </section>
-
-        <section>
+        <!-- edit Task -->
+        <section class="editTask">
             <!-- Button trigger modal -->
 
 
@@ -277,20 +263,19 @@
                             <!-- edit text area -->
                             <div class="form-floating mb-3">
                                 <textarea class="form-control" id="textArea1" style="height: 100px"></textarea>
-                                <label for="textArea1" id="dataOperator">Sign In to Create a
-                                    Task</label>
+                                <label for="textArea1" id="dataOperator"></label>
+                            </div>
+                            <div class="col-md-6">
+                                <select class="form-select" id="statusTask" required>
+                                    <option selected disabled value="">Status Task</option>
+                                    <option value="Pending">Pending</option>
+                                    <option value="Complete">Complete</option>
+                                    <option value="Done">Done</option>
+                                </select>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <select class="form-select" id="statusTask" required>
-                                <option selected disabled value="">Status Task</option>
-                                <option value="Pending">Pending</option>
-                                <option value="Complete">Complete</option>
-                                <option value="Done">Done</option>
-                            </select>
-                        </div>
                         <div class="modal-footer">
-                            
+
                             <button id="editTaskSave" type="button" class="btn btn-primary">Save changes</button>
                         </div>
                     </div>
@@ -300,15 +285,6 @@
 
 
         <section>
-            <h3>Edit Task</h3>
-        </section>
-
-
-
-
-
-        <section>
-
             <button id="clearInformationDB" type="button" class="btn btn-primary">Borrar DB</button>
         </section>
 

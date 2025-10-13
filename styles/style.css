@@ -46,6 +46,97 @@ h1 {
   background-color: #000;
 }
 
+.buttonAccess {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+}
+.buttonAccess .btn {
+  background-color: rgba(40, 101, 255, 0.614);
+  color: #000000;
+}
+.buttonAccess .modal .modal-content .modal-header {
+  background-color: rgba(155, 69, 26, 0.5960784314);
+}
+.buttonAccess .modal .modal-content .modal-header .modal-title {
+  color: #261111;
+}
+.buttonAccess .modal .modal-content .col-12 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: end;
+}
+
+.newUsers {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 1100px;
+  background-color: rgba(128, 137, 240, 0.1176470588);
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+h2 {
+  padding: 1rem;
+}
+
+.table {
+  text-align: center;
+  align-items: center;
+}
+
+.searchStyle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 1100px;
+  background-color: rgba(128, 137, 240, 0.1176470588);
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(179, 99, 99, 0.08);
+  transition: all 0.3s ease;
+}
+
+.taksAndEdit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 1100px;
+  background-color: rgba(128, 137, 240, 0.1176470588);
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(243, 144, 144, 0.08);
+  transition: all 0.3s ease;
+}
+
+.edit-task {
+  border: none;
+  cursor: pointer;
+}
+
+.editTask {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+.editTask .form-select {
+  padding: 10px;
+}
+
 .nightModeButton {
   border: none;
   background: none;
@@ -53,11 +144,27 @@ h1 {
 }
 
 body.nightModeStyle {
-  background-color: #1e1e1e;
+  background-color: #000000;
   color: #f0f0f0;
 }
+body.nightModeStyle h1 {
+  color: #ffffff;
+}
+body.nightModeStyle h2 {
+  color: #ffffff;
+}
+body.nightModeStyle h3 {
+  color: #ffffff;
+}
+body.nightModeStyle h4 {
+  color: #ffffff;
+}
+body.nightModeStyle .btn {
+  color: #f0f0f0;
+  background-color: rgb(57, 92, 205);
+}
 body.nightModeStyle .styleHeader {
-  background-color: #1e1e1e;
+  background-color: #000000;
 }
 body.nightModeStyle .styleHeader .nightModeHeader {
   color: #eca814;
@@ -69,13 +176,23 @@ body.nightModeStyle .styleHeader .nightModeHeader:hover {
   stroke: #ffffff;
 }
 body.nightModeStyle .spanBanner {
+  padding: 14px;
   display: flex;
-  justify-content: center; /* centra horizontalmente */
-  align-items: center; /* centra verticalmente */
-  width: 100%;
-  height: 40px; /* alto del banner */
-  background-color: #f0f0f0;
-  color: #1e1e1e;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  color: #ffffff;
+  background-color: rgba(109, 143, 255, 0.605);
+}
+
+.spanBanner {
+  padding: 14px;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  color: #261111;
+  background-color: rgba(57, 92, 205, 0.605);
 }
 
 /*# sourceMappingURL=style.css.map */

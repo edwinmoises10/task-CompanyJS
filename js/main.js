@@ -1,36 +1,42 @@
 
 
 
-let buttonNM = document.getElementById("buttonNM")
-let body_NM = document.body
-let svgData = document.getElementById("svgData")
-let news = document.getElementById("news")
+// let buttonNM = document.getElementById("buttonNM")
+// let body_NM = document.body
+// let svgData = document.getElementById("svgData")
+// let news = document.getElementById("news")
 
-buttonNM.onclick = () => {
-    const toogleStatus = body_NM.classList.toggle("nightModeStyle")
-    if (!toogleStatus) {
 
-        svgData.innerHTML = `
-        <path d="M12 2v2" />
-                    <path
-                        d="M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715" />
-                    <path d="M16 12a4 4 0 0 0-4-4" />
-                    <path d="m19 5-1.256 1.256" />
-                    <path d="M20 12h2" />
-                    `
 
-    } else {
-        news.innerHTML = `        <span id="news" class="spanBanner" >Sun Mode</span>
-`
-        svgData.innerHTML =
-            //SUN
-            `
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun-icon lucide-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+// news.innerHTML = `        
+//         <span>${Date()}</span>`
 
-`
-    }
+// buttonNM.onclick = () => {
+//     // const toogleStatus = body_NM.classList.toggle("nightModeStyle")
 
-}
+//     if (!toogleStatus) {
+
+
+
+
+//         svgData.innerHTML = `
+//             < path d = "M12 2v2" />
+//                     <path
+//                         d="M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715" />
+//                     <path d="M16 12a4 4 0 0 0-4-4" />
+//                     <path d="m19 5-1.256 1.256" />
+//                     <path d="M20 12h2" />
+//         `
+
+//     } else {
+    
+//         svgData.innerHTML = `
+//                 <svg svg xmlns = "http://www.w3.org/2000/svg" width = "24" height = "24" viewBox = "0 0 24 24" fill = "none" stroke = "currentColor" stroke - width="2" stroke - linecap="round" stroke - linejoin="round" class="lucide lucide-sun-icon lucide-sun" ><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg >
+
+//                     `
+//     }
+
+// }
 
 // Personal Team
 
@@ -47,13 +53,13 @@ class PersonalTeam {
 
         // EMAIL
 
-        this.email = `${this.firstName.charAt(0).toLowerCase()}${this.lastName.toLowerCase()}@company.com`
+        this.email = `${this.firstName.charAt(0).toLowerCase()}${this.lastName.toLowerCase()} @company.com`
         // CODE OPERATOR 
 
         this.operatorCode = Math.floor(1000 + Math.random() * 9000)
 
         // username
-        this.username = `${this.firstName.charAt(0).toLowerCase()}${this.lastName.toLowerCase()}`
+        this.username = `${this.firstName.charAt(0).toLowerCase()}${this.lastName.toLowerCase()} `
 
         this.tasks = []
 
@@ -132,7 +138,7 @@ const result = () => {
         message +=
 
             `
-            <tr >
+            <tr tr >
                         <th>${person.id}</th>
                         <td>${person.firstName} ${person.lastName} </td>
                         <td>${person.username} </td>
@@ -179,14 +185,14 @@ const searchPersonal = () => {
             operatorFilter.forEach(person2 => {
                 messageSearch +=
                     `
-             <tr >
+            <tr tr >
                 <th>${person2.id}</th>
                 <td>${person2.firstName.toUpperCase()} ${person2.lastName.toUpperCase()}</td>
                 <td>${person2.operatorCode}</td>
                 <td>${person2.email}</td>
                 </tr >
-                    
-                `
+
+            `
             })
 
             operatorFoundlive.innerHTML = messageSearch
@@ -249,10 +255,10 @@ const logginSesion = () => {
             textArea.disabled = false
             saveTask.disabled = false
             textArea.value = ""
-            labelFloating.innerHTML = `<label>Welcome, ${loginUser.firstName} ${loginUser.lastName} Type your task, please </label>`
+            labelFloating.innerHTML = `<label label > Welcome, ${loginUser.firstName} ${loginUser.lastName} Type your task, please </label > `
 
         } else {
-            labelFloating.innerHTML = `<label>Wrong User/ Password </label>`
+            labelFloating.innerHTML = `<label label > Wrong User / Password </label > `
         }
 
         saveTask.onclick = () => {
@@ -277,7 +283,7 @@ const logginSesion = () => {
 
             } else {
                 console.log("error")
-                labelFloating.innerHTML = `<label>Without Text </label>`
+                labelFloating.innerHTML = `<label label > Without Text </label > `
             }
 
         }
@@ -311,6 +317,7 @@ const taskCreated = () => {
 
     let message3 = ""
 
+    let icon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pencil-icon lucide-pencil"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/></svg>`
 
     personalTeam.forEach(person => {
         person.tasks.forEach(task => {
@@ -318,16 +325,16 @@ const taskCreated = () => {
 
 
             message3 += `
-            <tr >
+            <tr tr >
                         <th>${task.taskNumber}</th>
                         <td>${person.firstName} ${person.lastName} </td>
                         <td>${task.description} </td>
                         <td>${task.date} </td>
                         <td>${task.status} </td>
                         <td><button class="edit-task" 
-                            taskNumber=${task.taskNumber}>
-                        Edit</button></td>
-            </tr >`
+                            taskNumber=${task.taskNumber}>${icon}
+                        </button></td>
+            </tr > `
         })
     })
 
@@ -355,7 +362,7 @@ const taskCreated = () => {
                 const modal = new bootstrap.Modal(modalElement)
                 modal.show()
 
-                dataOperator.innerHTML = `Task: ${taskIDNumber} Name:${personTask.firstName} ${personTask.lastName}`
+                dataOperator.innerHTML = `Task: ${taskIDNumber} Name:${personTask.firstName} ${personTask.lastName} `
 
                 const foundTask = personTask.tasks.find(task => task.taskNumber === taskIDNumber)
                 textArea1.value = foundTask.description
@@ -387,7 +394,7 @@ clearInformationDB.onclick = () => {
 
 
     } else {
-        
+
         personalTeam = []
         taskCreated()
         result()
