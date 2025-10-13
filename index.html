@@ -9,7 +9,9 @@
     <!-- link to Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <!-- Script -->
+    <!-- link to CSS -->
+    <link rel="stylesheet" href="./styles/style.css">
+        <!-- Script -->
     <script defer src="./js/main.js"></script>
 
     <title>Task Company</title>
@@ -18,6 +20,37 @@
 <body>
 
     <header>
+
+        <section class="styleHeader">
+            <svg class="logoHeader" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-notebook-pen-icon lucide-notebook-pen">
+                <path d="M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4" />
+                <path d="M2 6h4" />
+                <path d="M2 10h4" />
+                <path d="M2 14h4" />
+                <path d="M2 18h4" />
+                <path
+                    d="M21.378 5.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z" />
+            </svg>
+
+            <button id="buttonNM" class="nightModeButton">
+                <svg id="svgData" class="nightModeHeader" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="currentColor" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun-moon-icon lucide-sun-moon">
+                    <path d="M12 2v2" />
+                    <path
+                        d="M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715" />
+                    <path d="M16 12a4 4 0 0 0-4-4" />
+                    <path d="m19 5-1.256 1.256" />
+                    <path d="M20 12h2" />
+                </svg>
+
+            </button>
+        </section>
+
+        <span id="news" class="spanBanner"></span>
+
         <h1>Company</h1>
     </header>
 

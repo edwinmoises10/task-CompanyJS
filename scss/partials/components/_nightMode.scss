@@ -1,0 +1,28 @@
+body.nightModeStyle {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+
+  .styleHeader {
+    background-color: #1e1e1e;
+
+    .nightModeHeader {
+      color: #eca814; // este es el amarillo para el SVG
+      stroke: #ffffff;
+      transition: color 0.5s ease, stroke 0.5s ease;
+
+      &:hover {
+        color: #ffa600cd;
+        stroke: #ffffff;
+      }
+    }
+  }
+  .spanBanner {
+    display: flex;
+    justify-content: center; /* centra horizontalmente */
+    align-items: center; /* centra verticalmente */
+    width: 100%;
+    height: 40px; /* alto del banner */
+    background-color: #f0f0f0;
+    color: #1e1e1e;
+  }
+}

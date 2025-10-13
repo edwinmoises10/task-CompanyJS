@@ -1,0 +1,12 @@
+@use "../utilities/mixins";
+
+h1 {
+  text-align: center;
+  padding: 1rem;
+}
+.spanBanner {
+  display: block;
+  @include mixins.img-size(100%, 0px);
+  background-color: #000;
+}
+

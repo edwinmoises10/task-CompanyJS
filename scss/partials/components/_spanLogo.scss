@@ -1,0 +1,23 @@
+@use "../utilities/mixins";
+
+.styleHeader {
+  @include mixins.general-flex(row, space-between, center);
+  padding: 30px;
+
+  .logoHeader {
+    @include mixins.img-size(50px, 50px);
+  }
+
+  .nightModeHeader {
+    @include mixins.img-size(45px, 45px);
+    fill: #5483e022; 
+    stroke: #082c29; 
+    transition: fill 0.5s ease, stroke 0.5s ease;
+
+    &:hover {
+      fill: #0b377e66; 
+      stroke: #000; 
+    }
+  }
+}
+

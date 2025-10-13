@@ -1,0 +1,28 @@
+
+// Maquetacion 
+
+
+@mixin general-flex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+@mixin box-size($width-x, $height-y) {
+  width: $width-x;
+  height: $height-y;
+}
+@mixin img-size($width-x, $height-y) {
+  width: $width-x;
+  height: $height-y;
+}
+
+
+// MODAL
+
+@mixin generalBlock($display, $direction, $justify, $align) {
+  display: $display;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
