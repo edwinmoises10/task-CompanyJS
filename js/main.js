@@ -18,7 +18,7 @@ class PersonalTeam {
 
         // EMAIL
 
-        this.email = `${this.firstName.charAt(0).toLowerCase()}${this.lastName.toLowerCase()} @company.com`
+        this.email = `${this.firstName.charAt(0).toLowerCase()}${this.lastName.toLowerCase()}@company.com`
         // CODE OPERATOR 
 
         this.operatorCode = Math.floor(1000 + Math.random() * 9000)
