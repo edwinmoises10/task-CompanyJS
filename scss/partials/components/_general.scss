@@ -37,7 +37,7 @@ h1 {
   @include mixins.general-flex(column, center, center);
   padding: 2rem;
   margin: 2rem auto;
-  max-width: 1100px; 
+  max-width: 1100px;
   background-color: #8089f01e;
   border-radius: 12px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
@@ -55,19 +55,18 @@ h2 {
   @include mixins.general-flex(column, center, center);
   padding: 2rem;
   margin: 2rem auto;
-  max-width: 1100px; 
+  max-width: 1100px;
   background-color: #8089f01e;
   border-radius: 12px;
   box-shadow: 0 2px 10px rgba(179, 99, 99, 0.08);
   transition: all 0.3s ease;
- 
 }
 
 .taksAndEdit {
   @include mixins.general-flex(column, center, center);
   padding: 2rem;
   margin: 2rem auto;
-  max-width: 1100px; 
+  max-width: 1100px;
   background-color: #8089f01e;
   border-radius: 12px;
   box-shadow: 0 2px 10px rgba(243, 144, 144, 0.08);
@@ -77,10 +76,47 @@ h2 {
   border: none;
   cursor: pointer;
 }
-.editTask{
+.editTask {
   @include mixins.general-flex(column, center, center);
- padding: 30px;
- .form-select{
+  padding: 30px;
+  .form-select {
+    padding: 10px;
+  }
+}
+
+.clearDB {
+  margin: 0;
+  @include mixins.general-flex(column, center, center);
+  gap: 10px;
+  padding: 5px;
+  /* eliminar este bloque genérico de button que sobrescribe colores */
+  /* button {
+    background-color: rgba(255, 0, 0, 0.797);
+    color: #ffffff;
+  } */
+}
+
+.warningDB {
+  @include mixins.general-flex(row, center, center);
+  background-color: red;
+  color: #000000;
+  font-weight: normal; // si quieres texto normal
   padding: 10px;
- }
+}
+
+.alertDB {
+  @include mixins.general-flex(row, center, center);
+  background-color: rgb(255, 149, 0);
+  color: #000000;
+  font-weight: normal;
+  padding: 10px;
+}
+
+.spanBanner1 {
+  padding: 17px;
+  @include mixins.general-flex(row, center, center);
+  gap: 10px;
+  color: #261111;
+  background-color: rgba(57, 92, 205, 0.605);
+  @include mixins.img-size(100%, 100%);
 }

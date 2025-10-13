@@ -76,10 +76,10 @@ const newUser = () => {
     saveInf.onclick = () => {
 
         if (!termsConditions.checked) {
-            console.log("sin check")
+            //without check
 
         } else {
-            console.log("con check")
+            // With Check
             const person = new PersonalTeam(firstName.value, lastName.value, userPassword.value, workArea.value, entryDate.value)
             // save information to Array 
             personalTeam.push(person)
@@ -133,7 +133,7 @@ const searchPersonal = () => {
         let checkText = searchPersonalValuelive.value.trim()
 
         if (checkText === "") {
-            // console.log("input empty ")
+            // input empty
             operatorFoundlive.innerHTML = ""
             return
         }
@@ -141,10 +141,10 @@ const searchPersonal = () => {
         let operatorFilter = personalTeam.filter((person1) =>
             person1.firstName.toLowerCase().includes(checkText.toLowerCase()) || person1.lastName.toLowerCase().includes(checkText.toLowerCase()) || person1.operatorCode.toString().includes(checkText))
 
-        console.log(operatorFilter)
+
 
         if (operatorFilter.length > 0) {
-            console.log("usuario encontrado")
+            // user found
             messageSearch += ""
 
             operatorFilter.forEach(person2 => {
@@ -163,7 +163,7 @@ const searchPersonal = () => {
             operatorFoundlive.innerHTML = messageSearch
 
         } else {
-            console.log("not found")
+            // not found
         }
     }
 }
@@ -178,7 +178,6 @@ const createNewTask = (user, text) => {
 
     user.tasks.push(newTask)
     updateLocalStorageUser(user)
-    // console.log(user)
 
 }
 
@@ -216,7 +215,6 @@ const logginSesion = () => {
             operatorEmail.value = ""
             passwordloggin.value = ""
 
-            console.log(loginUser.firstName)
             textArea.disabled = false
             saveTask.disabled = false
             textArea.value = ""
@@ -247,7 +245,6 @@ const logginSesion = () => {
 
 
             } else {
-                console.log("error")
                 labelFloating.innerHTML = `<label label > Without Text </label > `
             }
 
@@ -322,7 +319,6 @@ const taskCreated = () => {
             )
 
             if (personTask) {
-                console.log("user existe" + taskIDNumber)
                 const modalElement = document.getElementById("exampleModal")
                 const modal = new bootstrap.Modal(modalElement)
                 modal.show()
@@ -351,25 +347,53 @@ const taskCreated = () => {
 
 taskCreated()
 
-let clearInformationDB = document.getElementById("clearInformationDB")
+const validationDeleteDB = () => {
 
-clearInformationDB.onclick = () => {
-    if (personalTeam.length === 0) {
-        console.log("DB Clear")
+    let news1 = document.getElementById("news1")
+
+    let clearInformationDB = document.getElementById("clearInformationDB")
+
+    clearInformationDB.onclick = () => {
+        if (personalTeam.length === 0) {
+
+            news1.innerHTML = `empty database`
+
+        }
+        else {
+
+            news1.innerHTML = `
+  Would you like to Clear All Operators?
+  <button class="warningDB" id="deleteAll">Yes</button>
+  <button class="alertDB" id="cancelOperation">No</button>
+`
 
 
-    } else {
+        }
 
-        personalTeam = []
-        taskCreated()
-        result()
-        localStorage.clear("personalTeam")
-        console.log("DB Clear")
+
+        let deleteAll = document.getElementById("deleteAll")
+        let cancelOperation = document.getElementById("cancelOperation")
+        deleteAll.onclick = () => {
+
+            personalTeam = []
+            taskCreated()
+            result()
+            localStorage.clear("personalTeam")
+            news1.innerHTML = "All operators cleared!";
+        }
+
+        cancelOperation.onclick = () => {
+            news1.innerHTML = "Data Saved";
+        }
+
+
 
     }
-
+    news1.innerHTML = ""
 }
 
+
+validationDeleteDB()
 newUser()
 result()
 searchPersonal()
