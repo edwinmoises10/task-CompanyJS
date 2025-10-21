@@ -17,7 +17,6 @@ class PersonalTeam {
         this.entryDate = entryDate
 
         // EMAIL
-
         this.email = `${this.firstName.trim().charAt(0).toLowerCase()}${this.lastName.trim().toLowerCase()}@company.com`
         // CODE OPERATOR 
 
