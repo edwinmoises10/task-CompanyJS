@@ -3,6 +3,20 @@ let news = document.getElementById("news")
 news.innerHTML = `        
         <span>${Date()}</span>`
 
+// CheckInputs Only Strings
+
+const stringCheck = (valueString) => {
+    let value = valueString.value
+    if (!/^[a-zA-ZñÑ]*$/.test(value)) {
+        Swal.fire("Only letters are allowed!");
+        value = valueString.value.replace(/[^a-zA-ZñÑ]/g, "")
+    }
+    if (value.length > 0) {
+        value = value.charAt(0).toUpperCase() + value.slice(1).toLowerCase()
+    }
+    valueString.value = value
+}
+
 // Personal Team
 
 class PersonalTeam {
@@ -19,79 +33,96 @@ class PersonalTeam {
         // EMAIL
         this.email = `${this.firstName.trim().charAt(0).toLowerCase()}${this.lastName.trim().toLowerCase()}@company.com`
         // CODE OPERATOR 
-
         this.operatorCode = Math.floor(1000 + Math.random() * 9000)
-
         // username
         this.username = `${this.firstName.charAt(0).toLowerCase()}${this.lastName.toLowerCase()} `
-
         this.tasks = []
-
     }
-
-
 }
 
 // localStorage DB 
 let personalTeam = localStorage.getItem("personalTeam") ? JSON.parse(localStorage.getItem("personalTeam")) : []
 
+// Update Local Storage
 const updateLocalStorageUser = (user) => {
-
     const userIndex = personalTeam.findIndex((person) => person.id === user.id)
-
     personalTeam[userIndex] = user
-
     localStorage.setItem("personalTeam", JSON.stringify(personalTeam))
 }
 
-
 // ID Count
-
 if (personalTeam.length > 0) {
     PersonalTeam.id = personalTeam[personalTeam.length - 1].id
 }
 
 let firstName = document.getElementById("firstName")
-
-firstName.oninput = () => {
-    let valor = firstName.value
-    firstName.value = valor.charAt(0).toUpperCase() + valor.slice(1).toLowerCase()
-}
-
 let lastName = document.getElementById("lastName")
 
+firstName.oninput = () => {
+    stringCheck(firstName)
+}
 lastName.oninput = () => {
-    let valueText1 = lastName.value
-    lastName.value = valueText1.charAt(0).toUpperCase() + valueText1.slice(1).toLowerCase()
+    stringCheck(lastName)
+}
+
+let userPassword = document.getElementById("userPassword")
+let workArea = document.getElementById("workArea")
+let entryDate = document.getElementById("entryDate")
+let saveInf = document.getElementById("saveInf")
+let termsConditions = document.getElementById("termsConditions")
+
+// Validate duplicate user or email
+
+const checkUserMail = (firstName, lastName) => {
+
+    const emailCheck = `${firstName.trim().charAt(0).toLowerCase()}${lastName.trim().toLowerCase()}@company.com`
+
+    const checkNameMail = personalTeam.find(person =>
+        (person.firstName === firstName &&
+            person.lastName == lastName) ||
+        person.email === emailCheck
+    )
+    if (checkNameMail) {
+        return true
+    }
+    return false
 }
 
 const newUser = () => {
-    let userPassword = document.getElementById("userPassword")
-    let workArea = document.getElementById("workArea")
-    let entryDate = document.getElementById("entryDate")
-    let saveInf = document.getElementById("saveInf")
-    let termsConditions = document.getElementById("termsConditions")
 
-    saveInf.onclick = () => {
-
-        if (!termsConditions.checked) {
-            //without check
-
-        } else {
-            // With Check
-            const person = new PersonalTeam(firstName.value, lastName.value, userPassword.value, workArea.value, entryDate.value)
-            // save information to Array 
-            personalTeam.push(person)
-            // save information to DB 
-            localStorage.setItem("personalTeam", JSON.stringify(personalTeam))
-
-            result()
-
+    saveInf.onclick = (e) => {
+        e.preventDefault()
+        if (!termsConditions.checked || !firstName.value || !lastName.value) {
+            withoutItemsForm()
+            return
+        } else if (!userPassword.value || !workArea.value || !entryDate.value) {
+            withoutItemsForm()
+            return
         }
+        if (checkUserMail(firstName.value, lastName.value)) {
+            userExist()
+            return
+        }
+        // With Check
+        const person = new PersonalTeam(firstName.value, lastName.value, userPassword.value, workArea.value, entryDate.value)
+
+        // save information to Array 
+        personalTeam.push(person)
+        // save information to DB 
+        localStorage.setItem("personalTeam", JSON.stringify(personalTeam))
+        result()
+
+        const modal = bootstrap.Modal.getInstance(document.getElementById("registerModal"))
+            || new bootstrap.Modal(document.getElementById("registerModal"))
+        modal.hide()
+
+        userCreateAlert(person)
+
+        document.querySelector("#registerModal form").reset();
+
     }
+
 }
-
-
 
 let values = document.getElementById("values")
 
@@ -100,7 +131,6 @@ const result = () => {
 
     personalTeam.forEach(person => {
         message +=
-
             `
             <tr tr >
                         <th>${person.id}</th>
@@ -111,16 +141,12 @@ const result = () => {
                         <td>${person.operatorCode} </td>
                         <td>${person.entryDate} </td>
             </tr >
-
-
             `
     })
     values.innerHTML = message
-
-
-
 }
 
+// Search personal 
 const searchPersonal = () => {
 
     let searchPersonalValuelive = document.getElementById("searchPersonalValuelive")
@@ -140,12 +166,9 @@ const searchPersonal = () => {
         let operatorFilter = personalTeam.filter((person1) =>
             person1.firstName.toLowerCase().includes(checkText.toLowerCase()) || person1.lastName.toLowerCase().includes(checkText.toLowerCase()) || person1.operatorCode.toString().includes(checkText))
 
-
-
         if (operatorFilter.length > 0) {
             // user found
             messageSearch += ""
-
             operatorFilter.forEach(person2 => {
                 messageSearch +=
                     `
@@ -155,31 +178,28 @@ const searchPersonal = () => {
                 <td>${person2.operatorCode}</td>
                 <td>${person2.email}</td>
                 </tr >
-
             `
             })
-
             operatorFoundlive.innerHTML = messageSearch
-
         } else {
             // not found
         }
     }
 }
-const createNewTask = (user, text) => {
 
+// Create New Task
+const createNewTask = (user, text) => {
     let newTask = {
         taskNumber: Math.floor(Math.random() * 10000),
         description: text,
         date: new Date().toLocaleString(),
         status: "Created"
     }
-
     user.tasks.push(newTask)
     updateLocalStorageUser(user)
 
 }
-
+// Function Edit New Task
 const editNewTask = (task, newDescription, newStatus) => {
     task.description = newDescription
     task.status = newStatus
@@ -187,10 +207,7 @@ const editNewTask = (task, newDescription, newStatus) => {
     updateLocalStorageUser(task)
 }
 
-
-
 const logginSesion = () => {
-
 
     let operatorEmail = document.getElementById("operatorEmail")
     let passwordloggin = document.getElementById("passwordloggin")
@@ -205,61 +222,44 @@ const logginSesion = () => {
     textArea.value = ""
     labelFloating.innerHTML = "Sign In to Create a Task"
 
-
-
     checkLoggin.onclick = () => {
         const loginUser = personalTeam.find(person3 =>
             person3.email.toLowerCase() === operatorEmail.value.toLowerCase() &&
             person3.password === passwordloggin.value
         )
-
         if (loginUser) {
             operatorEmail.value = ""
             passwordloggin.value = ""
-
             textArea.disabled = false
             saveTask.disabled = false
             textArea.value = ""
             labelFloating.innerHTML = `<label label > Welcome, ${loginUser.firstName} ${loginUser.lastName} Type your task, please </label > `
-
         } else {
             labelFloating.innerHTML = `<label label > Wrong User / Password </label > `
         }
 
         saveTask.onclick = () => {
-
             let textValidation = textArea.value
+
             if (textValidation) {
-
-
                 createNewTask(loginUser, textValidation)
                 textArea.value = ""
-
                 // Cerrar el modal con el método oficial de Bootstrap
                 const modalElement = document.getElementById('loginModal')
                 const modalInstance = bootstrap.Modal.getInstance(modalElement) || new bootstrap.Modal(modalElement);
                 modalInstance.hide()
                 saveTask.blur()
-
                 textArea.disabled = false
                 saveTask.disabled = false
                 taskCreated()
-
-
             } else {
                 labelFloating.innerHTML = `<label label > Without Text </label > `
             }
-
         }
     }
-
-
-
-
 }
-
+// Close Modal Bootstrap
 const loginModal = document.getElementById('loginModal')
-
 loginModal.addEventListener('show.bs.modal', () => {
     // Cada vez que se abre el modal, limpiar y bloquear todo
     textArea.value = ""
@@ -267,7 +267,6 @@ loginModal.addEventListener('show.bs.modal', () => {
     saveTask.disabled = true
     labelFloating.innerHTML = "Sign In to Create a Task"
 })
-
 const btnClose = document.querySelector('#loginModal .btn-close');
 btnClose.onclick = () => {
     btnClose.blur(); // quita el foco antes de que Bootstrap cierre
@@ -275,19 +274,16 @@ btnClose.onclick = () => {
 
 logginSesion()
 
+// Edit - Delete task 
+
 const taskCreated = () => {
 
     let pendingTask = document.getElementById("pendingTask")
-
     let message3 = ""
-
     let icon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pencil-icon lucide-pencil"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/></svg>`
 
     personalTeam.forEach(person => {
         person.tasks.forEach(task => {
-
-
-
             message3 += `
             <tr tr >
                         <th>${task.taskNumber}</th>
@@ -341,47 +337,34 @@ const taskCreated = () => {
                     if (taskIndex > -1) {
                         personTask.tasks.splice(taskIndex, 1)
                         taskCreated()
-                        
+
                     }
                 }
             }
-
-
-
-
-
         }
     })
-
-
-
 }
 
 taskCreated()
 
+// Delete DB 
+
 const validationDeleteDB = () => {
 
     let news1 = document.getElementById("news1")
-
     let clearInformationDB = document.getElementById("clearInformationDB")
 
     clearInformationDB.onclick = () => {
         if (personalTeam.length === 0) {
-
             news1.innerHTML = `empty database`
-
         }
         else {
-
             news1.innerHTML = `
   Would you like to Clear All Operators?
   <button class="warningDB" id="deleteAll">Yes</button>
   <button class="alertDB" id="cancelOperation">No</button>
 `
-
-
         }
-
 
         let deleteAll = document.getElementById("deleteAll")
         let cancelOperation = document.getElementById("cancelOperation")
@@ -393,19 +376,39 @@ const validationDeleteDB = () => {
             localStorage.clear("personalTeam")
             news1.innerHTML = "All operators cleared!";
         }
-
         cancelOperation.onclick = () => {
             news1.innerHTML = "Data Saved";
         }
-
-
-
     }
     news1.innerHTML = ""
 }
 
+// SweetAlert Func
+
+function userCreateAlert(userSaved) {
+    Swal.fire({
+        icon: "success",
+        title: `User ${userSaved.firstName} ${userSaved.lastName} has been registered successfully.`
+    });
+}
+function withoutItemsForm() {
+    Swal.fire({
+        icon: "warning",
+        title: "Please fill in all fields."
+    });
+}
+function userExist() {
+    Swal.fire({
+        icon: "info",
+        title: "This user is already registered"
+    });
+}
+
+
+// Functions
 
 validationDeleteDB()
 newUser()
 result()
 searchPersonal()
+

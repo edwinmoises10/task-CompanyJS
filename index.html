@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
+    <!-- SweetAlert -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
     <!-- link to Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -72,7 +75,7 @@
                         </div>
                         <div class="modal-body">
 
-                            <form class="row g-3">
+                            <form class="row g-3" >
                                 <div class="col-md-4">
                                     <label for="firstName" class="form-label">First name</label>
                                     <input autocomplete="username" type="text" class="form-control" id="firstName"
@@ -86,7 +89,8 @@
                                 <div class="col-md-4">
                                     <label for="userPassword" class="form-label">Password</label>
                                     <div class="input-group">
-                                        <input autocomplete="current-password" type="password" class="form-control"
+                                        <input maxlength="8"
+                                        placeholder="8 characters max" autocomplete="current-password" type="password" class="form-control"
                                             id="userPassword" aria-describedby="inputGroupPrepend2" required>
                                     </div>
                                 </div>
@@ -105,7 +109,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="entryDate" class="form-label">Entry Date</label>
-                                    <input type="date" class="form-control" id="entryDate" required>
+                                    <input min="2020-01-01" max="2026-01-01" type="date" class="form-control" id="entryDate" required>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-check">
@@ -296,10 +300,56 @@
     </main>
 
     <footer>
-
+        <section class="f-container">
+            <div class="f-icons">
+                <div class="footer-container">
+                    <p class="footer-title">Moises Oña © 2025 Todos los derechos reservados</p>
+                </div>
+                <!-- linkedin -->
+                <div class="social-media-links">
+                    <a href="http://linkedin.com/in/moises-oña-79967a348" target="_blank">
+                        <!-- SVG -->
+                        <svg class="icons-styles" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-linkedin-icon lucide-linkedin">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                            <rect width="4" height="12" x="2" y="9" />
+                            <circle cx="4" cy="4" r="2" />
+                        </svg>
+                    </a>
+                    <!-- instagram -->
+                    <a href="https://www.instagram.com/moises93_10?igsh=MXY4YnNseXBuMjI5cg%3D%3D&utm_source=qr"
+                        target="_blank">
+                        <!-- SVG -->
+                        <svg class="icons-styles" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-instagram-icon lucide-instagram">
+                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                            <path class="circle-icon" d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                        </svg>
+                    </a>
+                    <!-- Mail -->
+                    <a
+                        href="mailto:edwinmoises.9319@gmail.com?subject=Consulta%20sobre%20tus%20servicios%2C%20Moises&body=Hola%2C%20quisiera%20obtener%20más%20información.">
+                        <!-- SVG -->
+                        <svg class="icons-styles" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail-icon lucide-mail">
+                            <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+                            <rect x="2" y="4" width="20" height="16" rx="2" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
     </footer>
 
 
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Script Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"

@@ -1,0 +1,65 @@
+
+/* CONTENEDOR PRINCIPAL */
+.f-container {
+  padding-top: 10px;
+  padding-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+    padding-top: 100px;
+
+}
+
+/* LOGO + TEXTOS + ICONOS */
+.f-container .f-icons {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+/* LOGO DEL FOOTER */
+.f-container .f-icons .footer-logo {
+  width: 50px;
+  height: 50px;
+}
+
+/* TEXTOS DEL FOOTER */
+.f-container .f-icons .footer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.f-container .f-icons .footer-container .footer-title {
+  font-size: 14px; /* valor de $font-size-footer */
+  font-weight: 300;
+}
+
+/* ICONOS DE REDES SOCIALES */
+.f-container .f-icons .social-media-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 40px;
+  margin: 0;
+}
+
+.f-container .f-icons .social-media-links .icons-styles {
+  width: 30px;
+  height: 30px;
+  stroke-width: 1px;
+  stroke: rgba(0, 0, 0, 0.9); /* $icon-stroke-color */
+  fill: rgba(6, 45, 60, 0.539); /* $icon-fill-color */
+}
+
+/* ICONO DEL CÍRCULO DE INSTAGRAM */
+.circle-icon {
+  stroke: #000000;
+  stroke-width: 1px;
+  fill: #ffffffe9;
+}
