@@ -75,7 +75,7 @@
                         </div>
                         <div class="modal-body">
 
-                            <form class="row g-3" >
+                            <form class="row g-3">
                                 <div class="col-md-4">
                                     <label for="firstName" class="form-label">First name</label>
                                     <input autocomplete="username" type="text" class="form-control" id="firstName"
@@ -89,8 +89,8 @@
                                 <div class="col-md-4">
                                     <label for="userPassword" class="form-label">Password</label>
                                     <div class="input-group">
-                                        <input maxlength="8"
-                                        placeholder="8 characters max" autocomplete="current-password" type="password" class="form-control"
+                                        <input maxlength="8" placeholder="8 characters max"
+                                            autocomplete="current-password" type="password" class="form-control"
                                             id="userPassword" aria-describedby="inputGroupPrepend2" required>
                                     </div>
                                 </div>
@@ -109,7 +109,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="entryDate" class="form-label">Entry Date</label>
-                                    <input min="2020-01-01" max="2026-01-01" type="date" class="form-control" id="entryDate" required>
+                                    <input min="2020-01-01" max="2026-01-01" type="date" class="form-control"
+                                        id="entryDate" required>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-check">
@@ -183,6 +184,62 @@
             </div>
         </section>
 
+        <!-- edit operator Alert and then(OpenModal)-->
+           <div class="modal fade" id="editModalOperator" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="registerModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title fs-5" id="operatorView">Edit Operator</h2>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+                            <form class="row g-3">
+                                <div class="col-md-4">
+                                    <label for="firstNameDB" class="form-label">First name</label>
+                                    <input autocomplete="username" type="text" class="form-control" id="firstNameDB"
+                                        required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="lastNameDB" class="form-label">Last name</label>
+                                    <input autocomplete="username" type="text" class="form-control" id="lastNameDB"
+                                        required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="userPasswordDB" class="form-label">Password</label>
+                                    <div class="input-group">
+                                        <input maxlength="8" placeholder="8 characters max"
+                                            autocomplete="current-password" type="password" class="form-control"
+                                            id="userPasswordDB" aria-describedby="inputGroupPrepend2" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="workAreaDB" class="form-label">Work Area</label>
+                                    <select class="form-select" id="workAreaDB" required>
+                                        <option selected disabled value="">Select Work Area</option>
+                                        <option value="NOC">NOC</option>
+                                        <option value="NETWORKING">NETWORKING</option>
+                                        <option value="IPCCL1">IPCCL1</option>
+                                        <option value="IPCCL2">IPCCL2</option>
+                                        <option value="TI">TI</option>
+                                        <option value="RRHH">RRHH</option>
+                                    </select>
+                                </div>
+                        
+                                <div class="col-12">
+                                    <button id="saveInf" class="btn btn-primary" type="submit">Save Information</button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        <!-- new User -->
         <section class="newUsers">
             <h2>Personal Team</h2>
             <!-- Data Results -->
@@ -200,6 +257,9 @@
                 </thead>
                 <tbody id="values"></tbody>
             </table>
+
+
+
         </section>
 
 
@@ -252,8 +312,6 @@
         <!-- edit Task -->
         <section class="editTask">
             <!-- Button trigger modal -->
-
-
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">

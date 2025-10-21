@@ -71,6 +71,11 @@ let entryDate = document.getElementById("entryDate")
 let saveInf = document.getElementById("saveInf")
 let termsConditions = document.getElementById("termsConditions")
 
+// Icon Edit
+
+let icon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pencil-icon lucide-pencil"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/></svg>`
+
+
 // Validate duplicate user or email
 
 const checkUserMail = (firstName, lastName) => {
@@ -103,7 +108,6 @@ const newUser = () => {
             userExist()
             return
         }
-        // With Check
         const person = new PersonalTeam(firstName.value, lastName.value, userPassword.value, workArea.value, entryDate.value)
 
         // save information to Array 
@@ -126,6 +130,7 @@ const newUser = () => {
 
 let values = document.getElementById("values")
 
+// Results
 const result = () => {
     let message = ""
 
@@ -133,17 +138,67 @@ const result = () => {
         message +=
             `
             <tr tr >
-                        <th>${person.id}</th>
+                        <th><button class="editOperator" id=${person.id}>${person.id}</button></th>
                         <td>${person.firstName} ${person.lastName} </td>
                         <td>${person.username} </td>
                         <td>${person.workArea} </td>
                         <td>${person.email} </td>
                         <td>${person.operatorCode} </td>
                         <td>${person.entryDate} </td>
+                        
             </tr >
             `
     })
     values.innerHTML = message
+
+
+    // Edit - remove operator
+
+    let editOperator = document.querySelectorAll(".editOperator")
+    let firstNameDB = document.getElementById("firstNameDB")
+    let lastNameDB = document.getElementById("lastNameDB")
+    let userPasswordDB = document.getElementById("userPasswordDB")
+    let workAreaDB = document.getElementById("workAreaDB")
+    let operatorView = document.getElementById("operatorView")
+
+    editOperator.forEach(operator => {
+        operator.onclick = (e) => {
+
+            const operatorID = Number(e.currentTarget.getAttribute("id"))
+
+            const operatorInformation = personalTeam.find(operatorInfo => operatorInfo.id === operatorID)
+
+            if (operatorInformation) {
+                editOperatorAlert(operatorInformation).then(() => {
+                    // Open my Modal
+                    const modalElement = document.getElementById("editModalOperator")
+                    const modal = new bootstrap.Modal(modalElement)
+                    modal.show()
+                })
+
+                operatorView.innerHTML =
+                    `
+                    <strong>Personal Information</strong>
+                    <br>
+                    Hi <strong>${operatorInformation.firstName} ${operatorInformation.lastName}</strong><span class="text-muted"> | Code: ${operatorInformation.operatorCode}</span>
+                    <br><span class="text-muted"><strong>Email:</strong> ${operatorInformation.email}</span>`;
+
+                firstNameDB.value = operatorInformation.firstName
+
+                lastNameDB.value = operatorInformation.lastName
+
+                userPasswordDB.value = operatorInformation.userPassword
+
+                workAreaDB.value = operatorInformation.workArea
+
+                
+
+            }
+        }
+    })
+
+
+
 }
 
 // Search personal 
@@ -280,7 +335,6 @@ const taskCreated = () => {
 
     let pendingTask = document.getElementById("pendingTask")
     let message3 = ""
-    let icon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pencil-icon lucide-pencil"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/></svg>`
 
     personalTeam.forEach(person => {
         person.tasks.forEach(task => {
@@ -369,11 +423,12 @@ const validationDeleteDB = () => {
         let deleteAll = document.getElementById("deleteAll")
         let cancelOperation = document.getElementById("cancelOperation")
         deleteAll.onclick = () => {
-
+            PersonalTeam.id = 0
             personalTeam = []
             taskCreated()
             result()
-            localStorage.clear("personalTeam")
+            // localStorage.clear("personalTeam")
+            localStorage.removeItem("personalTeam")
             news1.innerHTML = "All operators cleared!";
         }
         cancelOperation.onclick = () => {
@@ -402,6 +457,19 @@ function userExist() {
         icon: "info",
         title: "This user is already registered"
     });
+}
+
+function editOperatorAlert(operatorInfView) {
+
+
+    return Swal.fire({
+        position: "center",
+        icon: "success",
+        title: `Operator: ${operatorInfView.firstName} ${operatorInfView.lastName} selected.`,
+        showConfirmButton: false,
+        timer: 1500
+    });
+
 }
 
 // Functions

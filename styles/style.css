@@ -188,6 +188,25 @@ h2 {
   height: 100%;
 }
 
+.editOperator {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(37, 149, 214, 0.15);
+  color: #000000;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+.editOperator:hover {
+  background-color: rgba(209, 6, 57, 0.25);
+  transform: scale(1.05);
+}
+
 .nightModeButton {
   border: none;
   background: none;
