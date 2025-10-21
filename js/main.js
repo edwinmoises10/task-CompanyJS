@@ -404,7 +404,6 @@ function userExist() {
     });
 }
 
-
 // Functions
 
 validationDeleteDB()
