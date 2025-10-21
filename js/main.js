@@ -196,9 +196,6 @@ const result = () => {
             }
         }
     })
-
-
-
 }
 
 // Search personal 
