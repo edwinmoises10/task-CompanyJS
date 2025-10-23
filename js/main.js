@@ -409,7 +409,6 @@ const taskCreated = () => {
 
     pendingTask.innerHTML = message3
 
-
     let editTask = document.querySelectorAll(".edit-task")
     let dataOperator = document.getElementById("dataOperator")
     let textArea1 = document.getElementById("textArea1")
@@ -445,8 +444,6 @@ const taskCreated = () => {
                     editTaskAlert(personTask).then(() => {
                         taskCreated()
                     })
-
-
                 }
 
                 let deleteTask = document.getElementById("deleteTask")
@@ -466,7 +463,6 @@ const taskCreated = () => {
 taskCreated()
 
 // Delete DB 
-
 const validationDeleteDB = () => {
 
     let news1 = document.getElementById("news1")
@@ -503,7 +499,6 @@ const validationDeleteDB = () => {
 }
 
 // SweetAlert Func
-
 function userCreateAlert(userSaved) {
     Swal.fire({
         icon: "success",
