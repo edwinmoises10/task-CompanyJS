@@ -57,7 +57,7 @@ if (personalTeam.length > 0) {
 
 let firstName = document.getElementById("firstName")
 let lastName = document.getElementById("lastName")
-
+// Check input only letters
 firstName.oninput = () => {
     stringCheck(firstName)
 }
@@ -128,6 +128,17 @@ const newUser = () => {
 
 }
 
+const editDeleteOperator = (operationUserEdit, editFirstName, editlastName, pass, workAreaEdit) => {
+
+    operationUserEdit.firstName = editFirstName
+    operationUserEdit.lastName = editlastName
+    operationUserEdit.password = pass
+    operationUserEdit.workArea = workAreaEdit
+
+    updateLocalStorageUser(operationUserEdit)
+
+}
+
 let values = document.getElementById("values")
 
 // Results
@@ -137,7 +148,7 @@ const result = () => {
     personalTeam.forEach(person => {
         message +=
             `
-            <tr tr >
+            <tr>
                         <th><button class="editOperator" id=${person.id}>${person.id}</button></th>
                         <td>${person.firstName} ${person.lastName} </td>
                         <td>${person.username} </td>
@@ -146,7 +157,7 @@ const result = () => {
                         <td>${person.operatorCode} </td>
                         <td>${person.entryDate} </td>
                         
-            </tr >
+            </tr>
             `
     })
     values.innerHTML = message
@@ -160,6 +171,16 @@ const result = () => {
     let userPasswordDB = document.getElementById("userPasswordDB")
     let workAreaDB = document.getElementById("workAreaDB")
     let operatorView = document.getElementById("operatorView")
+    let saveChanges = document.getElementById("saveChanges")
+    let deleteOperator = document.getElementById("deleteOperator")
+
+    firstNameDB.oninput = () => {
+        stringCheck(firstNameDB)
+    }
+    lastNameDB.oninput = () => {
+        stringCheck(lastNameDB)
+    }
+
 
     editOperator.forEach(operator => {
         operator.onclick = (e) => {
@@ -184,14 +205,51 @@ const result = () => {
                     <br><span class="text-muted"><strong>Email:</strong> ${operatorInformation.email}</span>`;
 
                 firstNameDB.value = operatorInformation.firstName
-
                 lastNameDB.value = operatorInformation.lastName
-
                 userPasswordDB.value = operatorInformation.userPassword
-
                 workAreaDB.value = operatorInformation.workArea
 
-                
+                saveChanges.onclick = (e) => {
+                    e.preventDefault()
+
+                    editDeleteOperator(operatorInformation, firstNameDB.value, lastNameDB.value, userPasswordDB.value, workAreaDB.value)
+
+                    const modalElement = document.getElementById("editModalOperator");
+                    const modal = bootstrap.Modal.getInstance(modalElement);
+                    if (modal) modal.hide();
+
+                    edituserCreateAlert(operatorInformation).then(() => {
+                        result()
+                    })
+
+                }
+
+                deleteOperator.onclick = (e) => {
+                    e.preventDefault()
+                    const indexOperator = personalTeam.findIndex(operatorTeam => operatorTeam.id === operatorID)
+
+                    if (indexOperator > -1) {
+                        personalTeam.splice(indexOperator, 1)
+                        localStorage.setItem("personalTeam", JSON.stringify(personalTeam))
+
+                        result()
+                        taskCreated()
+
+
+                    }
+
+                    localStorage.setItem("personalTeam", JSON.stringify(personalTeam))
+
+                    const modalElement = document.getElementById("editModalOperator");
+                    const modal = bootstrap.Modal.getInstance(modalElement);
+                    if (modal) modal.hide();
+
+                    operatorDelete(operatorInformation).then(() => {
+                        result()
+                    })
+
+                }
+
 
             }
         }
@@ -379,7 +437,16 @@ const taskCreated = () => {
 
                 editTaskSave.onclick = () => {
                     editNewTask(foundTask, textArea1.value, statusTask.value)
-                    taskCreated()
+
+                    const modalElement = document.getElementById("exampleModal");
+                    const modal = bootstrap.Modal.getInstance(modalElement);
+                    if (modal) modal.hide();
+
+                    editTaskAlert(personTask).then(() => {
+                        taskCreated()
+                    })
+
+
                 }
 
                 let deleteTask = document.getElementById("deleteTask")
@@ -443,6 +510,30 @@ function userCreateAlert(userSaved) {
         title: `User ${userSaved.firstName} ${userSaved.lastName} has been registered successfully.`
     });
 }
+function edituserCreateAlert(userUpdated) {
+    return Swal.fire({
+        icon: "success",
+        title: `User ${userUpdated.firstName} ${userUpdated.lastName} has been updated successfully.`,
+        showConfirmButton: false,
+        timer: 1500
+    });
+}
+function editTaskAlert(userUpdated1) {
+    return Swal.fire({
+        icon: "success",
+        title: `User ${userUpdated1.firstName} ${userUpdated1.lastName} has been updated successfully.`,
+        showConfirmButton: false,
+        timer: 1500
+    });
+}
+function operatorDelete(userDelete) {
+    return Swal.fire({
+        icon: "info",
+        title: `User ${userDelete.firstName} ${userDelete.lastName} has been delete successfully.`,
+        showConfirmButton: false,
+        timer: 1500
+    });
+}
 function withoutItemsForm() {
     Swal.fire({
         icon: "warning",
@@ -457,8 +548,6 @@ function userExist() {
 }
 
 function editOperatorAlert(operatorInfView) {
-
-
     return Swal.fire({
         position: "center",
         icon: "success",
@@ -466,8 +555,16 @@ function editOperatorAlert(operatorInfView) {
         showConfirmButton: false,
         timer: 1500
     });
-
 }
+
+// X Button 
+let exitX = document.getElementById("exitX")
+exitX.onclick = () => {
+    document.querySelector("#registerModal form").reset();
+}
+// Edit-delete Operator
+
+
 
 // Functions
 
