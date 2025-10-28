@@ -351,10 +351,11 @@ const logginSesion = () => {
             if (textValidation) {
                 createNewTask(loginUser, textValidation)
                 textArea.value = ""
-                // Cerrar el modal con el método oficial de Bootstrap
-                const modalElement = document.getElementById('loginModal')
-                const modalInstance = bootstrap.Modal.getInstance(modalElement) || new bootstrap.Modal(modalElement);
-                modalInstance.hide()
+
+                hideModalLogin()
+
+
+
                 saveTask.blur()
                 textArea.disabled = false
                 saveTask.disabled = false
@@ -378,6 +379,13 @@ const btnClose = document.querySelector('#loginModal .btn-close');
 btnClose.onclick = () => {
     btnClose.blur(); // quita el foco antes de que Bootstrap cierre
 };
+
+
+const xmodal = document.getElementById("xmodal")
+xmodal.onclick = () => {
+    operatorEmail.value = ""
+    passwordloggin.value = ""
+}
 
 logginSesion()
 
@@ -434,7 +442,7 @@ const taskCreated = () => {
                 editTaskSave.onclick = () => {
                     editNewTask(foundTask, textArea1.value, statusTask.value)
 
-                   hideModal()
+                    hideModal()
 
                     editTaskAlert(personTask).then(() => {
                         taskCreated()
@@ -450,7 +458,9 @@ const taskCreated = () => {
                             if (result.isConfirmed) {
                                 personTask.tasks.splice(taskIndex, 1)
                                 localStorage.setItem("personalTeam", JSON.stringify(personalTeam));
+
                                 hideModal()
+
                                 taskCreated()
                                 Swal.fire({
                                     icon: "success",
@@ -521,6 +531,17 @@ function hideModal() {
     if (modal) modal.hide();
 }
 
+function hideModalLogin() {
+    const modalElement = document.getElementById('loginModal')
+    const modalInstance = bootstrap.Modal.getInstance(modalElement) || new bootstrap.Modal(modalElement);
+    modalInstance.hide()
+    Swal.fire({
+        icon: "success",
+        title: `Task has been registered successfully.`,
+        showConfirmButton: false,
+        timer: 1500
+    });
+}
 // SweetAlert Func
 function userCreateAlert(userSaved) {
     Swal.fire({
