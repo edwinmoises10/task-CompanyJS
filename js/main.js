@@ -434,9 +434,7 @@ const taskCreated = () => {
                 editTaskSave.onclick = () => {
                     editNewTask(foundTask, textArea1.value, statusTask.value)
 
-                    const modalElement = document.getElementById("exampleModal");
-                    const modal = bootstrap.Modal.getInstance(modalElement);
-                    if (modal) modal.hide();
+                   hideModal()
 
                     editTaskAlert(personTask).then(() => {
                         taskCreated()
@@ -447,8 +445,28 @@ const taskCreated = () => {
                 deleteTask.onclick = () => {
                     const taskIndex = personTask.tasks.findIndex(task => task.taskNumber === taskIDNumber)
                     if (taskIndex > -1) {
-                        personTask.tasks.splice(taskIndex, 1)
-                        taskCreated()
+
+                        confirmDelete(personTask.tasks[taskIndex].taskNumber).then(result => {
+                            if (result.isConfirmed) {
+                                personTask.tasks.splice(taskIndex, 1)
+                                localStorage.setItem("personalTeam", JSON.stringify(personalTeam));
+                                hideModal()
+                                taskCreated()
+                                Swal.fire({
+                                    icon: "success",
+                                    title: "Task deleted successfully",
+                                    timer: 1200,
+                                    showConfirmButton: false,
+                                    background: "rgba(0,0,0,0.8)",
+                                    color: "#fff"
+                                });
+                            }
+                        })
+
+
+
+
+
 
                     }
                 }
@@ -494,6 +512,14 @@ const validationDeleteDB = () => {
     }
     news1.innerHTML = ""
 }
+// hide Modal
+
+
+function hideModal() {
+    const modalElement = document.getElementById("exampleModal");
+    const modal = bootstrap.Modal.getInstance(modalElement);
+    if (modal) modal.hide();
+}
 
 // SweetAlert Func
 function userCreateAlert(userSaved) {
@@ -532,6 +558,18 @@ function withoutItemsForm() {
         title: "Please fill in all fields."
     });
 }
+
+function confirmDelete(taskNumber) {
+    return Swal.fire({
+        icon: "warning",
+        title: `Delete Task ${taskNumber}?`,
+        showCancelButton: true,
+        confirmButtonColor: "#d33",
+        cancelButtonColor: "#3085d6",
+        confirmButtonText: "Yes, delete it!"
+    });
+}
+
 function userExist() {
     Swal.fire({
         icon: "info",
