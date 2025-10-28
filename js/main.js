@@ -441,9 +441,7 @@ const taskCreated = () => {
 
                 editTaskSave.onclick = () => {
                     editNewTask(foundTask, textArea1.value, statusTask.value)
-
                     hideModal()
-
                     editTaskAlert(personTask).then(() => {
                         taskCreated()
                     })
