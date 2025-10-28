@@ -4,20 +4,33 @@
   @include mixins.general-flex(row, space-between, center);
   padding: 30px;
 
+  .nightModeButton {
+    .country {
+       @include mixins.general-flex(row, space-between, center);
+      
+      .viewPicture {
+        @include mixins.img-size(40px, 40px);
+
+        object-fit: cover;
+        border-radius: 50%;
+        box-shadow: 8px 2px 5px rgba(255, 255, 255, 0.2);
+      }
+    }
+  }
+
   .logoHeader {
     @include mixins.img-size(50px, 50px);
   }
 
   .nightModeHeader {
     @include mixins.img-size(45px, 45px);
-    fill: #5483e022; 
-    stroke: #082c29; 
+    fill: #5483e022;
+    stroke: #082c29;
     transition: fill 0.5s ease, stroke 0.5s ease;
 
     &:hover {
-      fill: #0b377e66; 
-      stroke: #000; 
+      fill: #0b377e66;
+      stroke: #000;
     }
   }
 }
-

@@ -1,7 +1,4 @@
 
-let news = document.getElementById("news")
-news.innerHTML = `        
-        <span>${Date()}</span>`
 
 // CheckInputs Only Strings
 
@@ -557,14 +554,9 @@ let exitX = document.getElementById("exitX")
 exitX.onclick = () => {
     document.querySelector("#registerModal form").reset();
 }
-// Edit-delete Operator
-
-
-
 // Functions
 
 validationDeleteDB()
 newUser()
 result()
 searchPersonal()
-

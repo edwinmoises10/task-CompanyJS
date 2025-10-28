@@ -35,17 +35,7 @@ body.nightModeStyle {
       }
     }
   }
-  .spanBanner {
-    padding: 14px;
-    @include mixins.general-flex(row, end, center);
-    color: #ffffff;
-    background-color: rgba(109, 143, 255, 0.605);
-  }
+ 
 }
-.spanBanner {
-  padding: 17px;
-  @include mixins.general-flex(row, end, center);
-  color: #261111;
-  background-color: rgba(57, 92, 205, 0.605);
-}
+
 
