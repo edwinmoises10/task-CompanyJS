@@ -465,8 +465,7 @@ const taskCreated = () => {
                                     title: "Task deleted successfully",
                                     timer: 1200,
                                     showConfirmButton: false,
-                                    background: "rgba(0,0,0,0.8)",
-                                    color: "#fff"
+                                    color: "#000000ff"
                                 });
                             }
                         })
