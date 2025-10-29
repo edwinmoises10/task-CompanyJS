@@ -137,6 +137,7 @@ const editDeleteOperator = (operationUserEdit, editFirstName, editlastName, pass
 }
 
 let values = document.getElementById("values")
+values.classList.add("personalTeamCheckbox")
 
 // Results
 const result = () => {
@@ -158,6 +159,9 @@ const result = () => {
             `
     })
     values.innerHTML = message
+
+    /// create a class to edit personal team box
+
 
 
     // Edit - remove operator
@@ -288,6 +292,7 @@ const searchPersonal = () => {
             `
             })
             operatorFoundlive.innerHTML = messageSearch
+            ///create class to edit search box 
         } else {
             // not found
         }
@@ -413,6 +418,7 @@ const taskCreated = () => {
     })
 
     pendingTask.innerHTML = message3
+    //class edit result 
 
     let editTask = document.querySelectorAll(".edit-task")
     let dataOperator = document.getElementById("dataOperator")
@@ -434,7 +440,8 @@ const taskCreated = () => {
                 const modal = new bootstrap.Modal(modalElement)
                 modal.show()
 
-                dataOperator.innerHTML = `Task: ${taskIDNumber} Name:${personTask.firstName} ${personTask.lastName} `
+                dataOperator.innerHTML = `Name: ${personTask.firstName} ${personTask.lastName} -
+                Task: ${taskIDNumber}  `
 
                 const foundTask = personTask.tasks.find(task => task.taskNumber === taskIDNumber)
                 textArea1.value = foundTask.description
@@ -507,8 +514,12 @@ const validationDeleteDB = () => {
         deleteAll.onclick = () => {
             PersonalTeam.id = 0
             personalTeam = []
+            //Clear Search bar and result 
+            searchPersonalValuelive.value = ""
+            operatorFoundlive.innerHTML = ""
             taskCreated()
             result()
+
             // localStorage.clear("personalTeam")
             localStorage.removeItem("personalTeam")
             news1.innerHTML = "All operators cleared!";

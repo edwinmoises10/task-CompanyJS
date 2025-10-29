@@ -1,6 +1,11 @@
-
 .nightModeButton {
-    border: none;
-    background: none;
-    cursor: pointer;
+  border-radius: 50%;
+  background: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: none;
+  &:hover {
+    transform: scale(1.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+  }
 }

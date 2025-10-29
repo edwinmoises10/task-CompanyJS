@@ -134,7 +134,8 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h1 class="modal-title fs-5" id="staticBackdropLabel">Sign In first and create a task</h1>
-                            <button id="xmodal" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button id="xmodal" type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
 
@@ -232,39 +233,37 @@
 
         <!-- new User -->
         <section class="newUsers">
-            <h2>Personal Team</h2>
             <!-- Data Results -->
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Operator Name</th>
-                        <th scope="col">Username</th>
-                        <th scope="col">Work Area</th>
-                        <th scope="col">Operator Email</th>
-                        <th scope="col">Operator Code</th>
-                        <th scope="col">Date of Entry</th>
-                    </tr>
-                </thead>
-                <tbody id="values"></tbody>
-            </table>
-
-
-
+            
+                <h2>Personal Team</h2>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Operator Name</th>
+                            <th scope="col">Username</th>
+                            <th scope="col">Work Area</th>
+                            <th scope="col">Operator Email</th>
+                            <th scope="col">Operator Code</th>
+                            <th scope="col">Date of Entry</th>
+                        </tr>
+                    </thead>
+                    <tbody id="values"></tbody>
+                </table>
         </section>
 
 
         <section class="searchStyle">
-            <h2>Search Personal</h2>
 
             <form class="row g-3">
+
+                <h2>Search Personal</h2>
+
                 <div class="col-md-6">
-                    <label for="searchPersonalValuelive" class="form-label">Search Personal</label>
+                    <label for="searchPersonalValuelive" class="form-label"></label>
                     <input type="text" class="form-control" id="searchPersonalValuelive" required
                         placeholder="Enter a Name">
-
                 </div>
-
 
                 <table class="table table-striped">
                     <thead>
@@ -276,7 +275,6 @@
                         </tr>
                     </thead>
                     <tbody id="operatorFoundlive"></tbody>
-
                 </table>
         </section>
 
@@ -296,7 +294,6 @@
                     </tr>
                 </thead>
                 <tbody id="pendingTask"></tbody>
-
             </table>
 
         </section>

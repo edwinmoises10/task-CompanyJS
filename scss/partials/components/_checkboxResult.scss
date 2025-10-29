@@ -1,0 +1,215 @@
+@use "../utilities/mixins";
+
+.newUsers {
+  @include mixins.general-flex(column, center, center);
+  background: none;
+  padding: 30px;
+  border-radius: 20px;
+
+  h2 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  .formContainer {
+    background-color: #0f94a89c;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+  }
+
+  table {
+    background-color: #1c1c1c;
+    color: #e0e0e0;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th {
+    background-color: #00ddff93;
+    color: #ffffff;
+    font-weight: 600;
+    text-align: center;
+    padding: 12px;
+  }
+
+  td {
+    padding: 10px;
+    text-align: center;
+    border-top: 1px solid #333;
+    color: #000000;
+  }
+
+  tr:hover {
+    background-color: #2f2f2f;
+    transition: background 0.3s ease;
+  }
+}
+
+.editOperator {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.781);
+  color: #000000;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.2s ease;
+  &:hover {
+    background-color: rgb(255, 255, 255);
+    transform: scale(1.05);
+  }
+}
+
+/////////search bar
+.searchStyle {
+  @include mixins.general-flex(column, center, center);
+  background-color: none;
+  padding: 30px;
+  border-radius: 20px;
+
+  h2 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  form {
+    background-color: #0f94a89c;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  table {
+    background-color: #1c1c1c;
+    color: #e0e0e0;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  th {
+    background-color: #00ddff93;
+    color: #ffffff;
+    font-weight: 600;
+    text-align: center;
+    padding: 12px;
+  }
+
+  td {
+    padding: 10px;
+    text-align: center;
+    border-top: 1px solid #333;
+    color: #000000;
+  }
+
+  tr:hover {
+    background-color: #2f2f2f;
+    transition: background 0.3s ease;
+  }
+}
+
+////TASK Result
+///
+///
+///
+
+.taksAndEdit {
+  @include mixins.general-flex(column, start, start);
+  padding: 30px;
+  margin: 2rem auto;
+  max-width: 800px;
+  background-color: #0f94a89c;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+
+  h2 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  table {
+    background-color: #1c1c1c;
+    color: #e0e0e0;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  th {
+    background-color: #00ddff93;
+    color: #ffffff;
+    font-weight: 600;
+    text-align: center;
+    padding: 12px;
+  }
+
+  td {
+    padding: 10px;
+    text-align: center;
+    border-top: 1px solid #333;
+    color: #000000;
+  }
+
+  tr:hover {
+    background-color: #2f2f2f;
+    transition: background 0.3s ease;
+  }
+}
+
+.edit-task {
+  border: none;
+  cursor: pointer;
+  background-color: none;
+
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s ease;
+
+  &:hover {
+    background-color: rgba(33, 190, 185, 0.59);
+    transform: scale(1.05);
+  }
+}
+
+.editTask {
+  @include mixins.general-flex(column, center, center);
+  padding: 30px;
+  .modal-header {
+    background-color: #e4571661;
+
+    .modal-title {
+      .form-select {
+        padding: 10px;
+        border-radius: 10px;
+      }
+
+      textarea {
+        border-radius: 10px;
+        padding: 10px;
+        resize: none;
+      }
+    }
+  }
+}
