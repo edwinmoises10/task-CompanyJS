@@ -1,18 +1,29 @@
-task-CompanyJS (Inspirado en un proceso que podria ser empresarial donde el encargado de Recursos Humanos deba ingresar la data del los nuevos operadores y asignar tareas)
+# Task CompanyJS
 
-Descripción
+**Task CompanyJS** es una aplicación web desarrollada con HTML, CSS (SCSS) y JavaScript puro, que permite gestionar tareas de forma simple e interactiva.  
+El proyecto combina funcionalidades como el registro de usuarios, manejo de tareas, animaciones dinámicas y almacenamiento local para ofrecer una experiencia moderna y fluida.
 
-Flujo de uso
-	1.	Registro de usuario:
-	•	Se debe crear un usuario con nombre, apellido y contraseña.
-	•	Al crear el nuevo usuario se genera automáticamente un correo electrónico usando las iniciales del nombre y el apellido (ejemplo: eona@company.com) = Edwin Ona.
-	
-	2.	Inicio de sesión:
-	•	Para poder agregar tareas, el usuario debe iniciar sesión utilizando el correo generado y la contraseña registrada.
-	
-	3.	Gestión de tareas:
-	•	Crear tareas con descripción, fecha y asignarlas al usuario registrado.
-	•	Marcar tareas como completadas.
-	•	Editar o eliminar tareas existentes.
-	•	Filtrar tareas por estado: pendientes, completadas o todas.
-	
+## Descripción general
+
+Task CompanyJS funciona como un sistema de gestión de tareas personal, con una interfaz dinámica que incluye validaciones, alertas, animaciones y conexión a una API de ubicación.  
+El proyecto está pensado como una base sólida para aplicaciones de tipo To-Do List o paneles personales con control de usuarios.
+
+## Características principales
+
+- Registro y autenticación de usuarios locales.  
+- Creación, edición y eliminación de tareas.  
+- Búsqueda dinámica de usuarios o tareas.  
+- Almacenamiento persistente en LocalStorage.  
+- Integración con API externa para obtener información de ubicación.  
+- Animaciones visuales con SweetAlert2 y efectos de texto.  
+
+## Tecnologías utilizadas
+
+| Tecnología | Descripción |
+|-------------|-------------|
+| **HTML5** | Estructura y semántica del proyecto |
+| **CSS / SCSS** | Estilos, diseño y animaciones |
+| **JavaScript** | Lógica principal y manipulación del DOM |
+| **LocalStorage** | Persistencia de datos en el navegador |
+| **IPWHO.IS API** | Consulta de ubicación del usuario |
+| **SweetAlert2** | Alertas y mensajes interactivos |
