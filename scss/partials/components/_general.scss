@@ -118,15 +118,24 @@ h2 {
   padding: 15px;
   gap: 10px;
 }
-.btContainer1{
+.btContainer1 {
   @include mixins.general-flex(row, center, center);
   padding: 5px;
 }
 .saveChange {
-    padding: 10px;
-    justify-content: end;
-    border-radius: 20px;
-    background-color: #042137;
-    color: #ffffff;
-    
-  }
+  padding: 10px;
+  justify-content: end;
+  border-radius: 20px;
+  background-color: #042137;
+  color: #ffffff;
+}
+
+.logoTsCompany {
+  padding: 10px;
+  width: 320px; 
+  height: auto; 
+  display: block;
+  margin: 0 ; 
+  filter: drop-shadow(0 0 10px rgba(0, 255, 127, 0.5)); /* brillo opcional */
+ 
+}

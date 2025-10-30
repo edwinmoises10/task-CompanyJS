@@ -21,19 +21,22 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 30px;
+  margin: 0;
 }
 .styleHeader .nightModeButton .country {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  margin: 0%;
 }
 .styleHeader .nightModeButton .country .viewPicture {
-  width: 40px;
-  height: 40px;
+  margin: 0;
+  width: 50px;
+  height: 50px;
+  filter: drop-shadow(0 0 10px rgba(0, 255, 128, 0.683)); /* brillo opcional */
   object-fit: cover;
   border-radius: 50%;
-  box-shadow: 8px 2px 5px rgba(255, 255, 255, 0.2);
 }
 .styleHeader .logoHeader {
   width: 50px;
@@ -202,6 +205,15 @@ h2 {
   border-radius: 20px;
   background-color: #042137;
   color: #ffffff;
+}
+
+.logoTsCompany {
+  padding: 10px;
+  width: 320px;
+  height: auto;
+  display: block;
+  margin: 0;
+  filter: drop-shadow(0 0 10px rgba(0, 255, 127, 0.5)); /* brillo opcional */
 }
 
 .nightModeButton {
@@ -514,6 +526,126 @@ body.nightModeStyle .styleHeader .nightModeHeader:hover {
   resize: none;
 }
 
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.titleh1 span::after {
+  content: "Company Tasks";
+  animation: words 28s infinite;
+  transition: opacity 1s ease;
+  opacity: 1;
+}
+
+@keyframes words {
+  0%, 12% {
+    content: "Register Users";
+    color: #00bfff; /* azul claro */
+  }
+  13%, 25% {
+    content: "Login to Your Account";
+    color: #00ff7f; /* verde */
+  }
+  26%, 38% {
+    content: "Create Tasks";
+    color: #00fa9a;
+  }
+  39%, 51% {
+    content: "Edit Your Tasks";
+    color: #ff00ff;
+  }
+  52%, 64% {
+    content: "Delete Tasks";
+    color: #ffd700;
+  }
+  65%, 77% {
+    content: "Search Tasks";
+    color: #ffa500;
+  }
+  78%, 89% {
+    content: "Save in Local Storage";
+    color: #1e90ff;
+  }
+  90%, 100% {
+    content: "Check Your Location 🌍";
+    color: #7fffd4;
+  }
+}
+.titleh1 {
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+h5 {
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.whoIam span::after {
+  content: "Moises";
+  animation: wordsAboutMe 28s infinite;
+  transition: opacity 1s ease;
+  opacity: 1;
+}
+
+.whoIam span {
+  padding-left: 6px;
+}
+
+@keyframes wordsAboutMe {
+  0%, 20% {
+    content: "Edwin Moises Oña";
+    color: #ff7700;
+  }
+  21%, 40% {
+    content: "Electronic Engineer";
+    color: #00bfff;
+  }
+  41%, 50% {
+    content: "Web Developer";
+    color: #00ff7f;
+  }
+  51%, 60% {
+    content: "CSS & SCSS ";
+    color: #ff69b4;
+  }
+  61%, 80% {
+    content: "JavaScript Lover";
+    color: #ffd700;
+  }
+  81%, 100% {
+    content: "Future Full Stack Dev 🚀";
+    color: #7fffd4;
+  }
+}
+.whoIam {
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 /* CONTENEDOR PRINCIPAL */
 .f-container {
   display: flex;
