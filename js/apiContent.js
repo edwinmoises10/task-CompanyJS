@@ -23,7 +23,7 @@ const apiInformation = (apiUrl) => {
         })
 }
 
-let buttonNM = document.getElementById("buttonNM")
+let countryFlag = document.getElementById("countryFlag")
 
 const getInformation = (dataApi) => {
     const apiInformationdata = document.createElement("div")
@@ -54,7 +54,7 @@ const getInformation = (dataApi) => {
         `
         <img class="viewPicture" src="${dataApi.flag.img}">
     `
-    buttonNM.appendChild(country)
+    countryFlag.appendChild(country)
 }
 
 const errorMessageAlert = () => {

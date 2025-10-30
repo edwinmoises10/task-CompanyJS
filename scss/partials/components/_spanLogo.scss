@@ -3,17 +3,21 @@
 .styleHeader {
   @include mixins.general-flex(row, space-between, center);
   padding: 30px;
+  margin: 0 ;
 
   .nightModeButton {
     .country {
-       @include mixins.general-flex(row, space-between, center);
-      
+      @include mixins.general-flex(row, center, center);
+margin: 0%;
       .viewPicture {
-        @include mixins.img-size(40px, 40px);
+        margin: 0;
+         @include mixins.img-size(50px, 50px);
+        filter: drop-shadow(
+          0 0 10px rgba(0, 255, 128, 0.683)
+        ); /* brillo opcional */
 
         object-fit: cover;
         border-radius: 50%;
-        box-shadow: 8px 2px 5px rgba(255, 255, 255, 0.2);
       }
     }
   }
