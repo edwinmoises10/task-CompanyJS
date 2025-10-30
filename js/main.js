@@ -160,10 +160,6 @@ const result = () => {
     })
     values.innerHTML = message
 
-    /// create a class to edit personal team box
-
-
-
     // Edit - remove operator
 
     let editOperator = document.querySelectorAll(".editOperator")
@@ -491,48 +487,41 @@ const taskCreated = () => {
 
 taskCreated()
 
-// Delete DB 
+// AQUI Delete DB 
 const validationDeleteDB = () => {
 
-    let news1 = document.getElementById("news1")
+    // let news1 = document.getElementById("news1")
     let clearInformationDB = document.getElementById("clearInformationDB")
 
     clearInformationDB.onclick = () => {
+
         if (personalTeam.length === 0) {
-            news1.innerHTML = `empty database`
-        }
-        else {
-            news1.innerHTML = `
-  Would you like to Clear All Operators?
-  <button class="warningDB" id="deleteAll">Yes</button>
-  <button class="alertDB" id="cancelOperation">No</button>
-`
+            dbNull()
+            return
         }
 
-        let deleteAll = document.getElementById("deleteAll")
-        let cancelOperation = document.getElementById("cancelOperation")
-        deleteAll.onclick = () => {
-            PersonalTeam.id = 0
-            personalTeam = []
-            //Clear Search bar and result 
-            searchPersonalValuelive.value = ""
-            operatorFoundlive.innerHTML = ""
-            taskCreated()
-            result()
+        clearDBAlert().then(decision => {
+            if (decision.isConfirmed) {
 
-            // localStorage.clear("personalTeam")
-            localStorage.removeItem("personalTeam")
-            news1.innerHTML = "All operators cleared!";
-        }
-        cancelOperation.onclick = () => {
-            news1.innerHTML = "Data Saved";
-        }
+                PersonalTeam.id = 0
+                personalTeam = []
+                //Clear Search bar and result 
+                searchPersonalValuelive.value = ""
+                operatorFoundlive.innerHTML = ""
+                localStorage.clear("personalTeam")
+                //localStorage.removeItem("personalTeam")
+                
+                taskCreated()
+                result()
+                dbClearOperators()
+            } else {
+                dbSafeAlert()
+            }
+        })
     }
-    news1.innerHTML = ""
 }
+
 // hide Modal
-
-
 function hideModal() {
     const modalElement = document.getElementById("exampleModal");
     const modal = bootstrap.Modal.getInstance(modalElement);
@@ -620,6 +609,49 @@ function editOperatorAlert(operatorInfView) {
 let exitX = document.getElementById("exitX")
 exitX.onclick = () => {
     document.querySelector("#registerModal form").reset();
+}
+
+// CLEAR DB
+
+function clearDBAlert() {
+    return Swal.fire({
+        icon: "warning",
+        title: `Delete DB`,
+        showCancelButton: true,
+        confirmButtonColor: "#d33",
+        cancelButtonColor: "#3085d6",
+        confirmButtonText: "Yes, delete it!"
+    });
+}
+
+function dbClearOperators() {
+    Swal.fire({
+        position: "center",
+        icon: "info",
+        title: "All operators cleared!",
+        showConfirmButton: false,
+        timer: 1500
+    });
+}
+
+function dbSafeAlert() {
+    Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Data Saved",
+        showConfirmButton: false,
+        timer: 1500
+    });
+}
+
+function dbNull() {
+    Swal.fire({
+        position: "center",
+        icon: "info",
+        title: "empty database",
+        showConfirmButton: false,
+        timer: 1500
+    });
 }
 // Functions
 

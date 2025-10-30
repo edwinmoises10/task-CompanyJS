@@ -5,14 +5,18 @@ h1 {
   padding: 1rem;
 }
 .spanBanner {
-  padding: 18px 30px;
+  padding: 10px;
   max-width: 800px;
   margin: 10px auto;
-  border: none;                      
+  border: none;
   border-radius: 14px;
   backdrop-filter: blur(25px);
-  background: linear-gradient(135deg, rgba(223, 189, 189, 0.39), rgba(15, 15, 15, 0.4));
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25); // 🔹 profundidad suave
+  background: linear-gradient(
+    135deg,
+    rgba(13, 131, 234, 0.39),
+    rgba(15, 15, 15, 0.516)
+  );
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
   color: #fff;
   text-align: center;
 
@@ -22,16 +26,14 @@ h1 {
 
   .apiInformation {
     @include mixins.general-flex(row, center, center);
-    flex-wrap: wrap;
     gap: 25px;
 
     h2 {
       font-size: 0.9rem;
       font-weight: 400;
-      color: #464343;
-      background: rgba(255, 255, 255, 0.08); 
-      border-radius: 6px;
-      padding: 6px 12px;
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
     }
   }
@@ -42,19 +44,26 @@ h1 {
   font-weight: 500;
 }
 
-.buttonAccess {
-  @include mixins.general-flex(row, space-around, center);
-  gap: 10px;
+.modalAccess {
+  @include mixins.general-flex(row, space-between, center);
+  padding: 5px 50px;
+  margin: 0;
   .btn {
     background-color: rgba(40, 101, 255, 0.614);
     color: #000000;
+    margin: 0;
   }
   .modal {
     .modal-content {
       .modal-header {
-        background-color: #9b451a98;
+        background-color: #146672;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
         .modal-title {
-          color: #261111;
+          color: #ffffff;
+        }
+        .modal-body form {
+          color: #146672;
         }
       }
       .col-12 {
@@ -72,23 +81,16 @@ h2 {
   align-items: center;
 }
 
-
-
 .clearDB {
-  margin: 0;
   @include mixins.general-flex(column, center, center);
+  padding-top: 0%;
   gap: 10px;
-  padding: 5px;
-  /* eliminar este bloque genérico de button que sobrescribe colores */
-  /* button {
-    background-color: rgba(255, 0, 0, 0.797);
-    color: #ffffff;
-  } */
 }
 
 .warningDB {
   @include mixins.general-flex(row, center, center);
-  background-color: red;
+  background-color: rgba(255, 0, 0, 0.46);
+  border-radius: 20px;
   color: #000000;
   font-weight: normal; // si quieres texto normal
   padding: 10px;
@@ -96,18 +98,35 @@ h2 {
 
 .alertDB {
   @include mixins.general-flex(row, center, center);
-  background-color: rgb(255, 149, 0);
+  background-color: rgba(255, 149, 0, 0.485);
   color: #000000;
   font-weight: normal;
   padding: 10px;
+  border-radius: 20px;
 }
 
 .spanBanner1 {
-  padding: 17px;
+  padding: 10px;
   @include mixins.general-flex(row, center, center);
   gap: 10px;
-  color: #261111;
-  background-color: rgba(57, 92, 205, 0.605);
+  color: #ffffff;
   @include mixins.img-size(100%, 100%);
 }
 
+.btContainer {
+  @include mixins.general-flex(row, end, end);
+  padding: 15px;
+  gap: 10px;
+}
+.btContainer1{
+  @include mixins.general-flex(row, center, center);
+  padding: 5px;
+}
+.saveChange {
+    padding: 10px;
+    justify-content: end;
+    border-radius: 20px;
+    background-color: #042137;
+    color: #ffffff;
+    
+  }

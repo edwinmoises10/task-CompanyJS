@@ -57,13 +57,13 @@ h1 {
 }
 
 .spanBanner {
-  padding: 18px 30px;
+  padding: 10px;
   max-width: 800px;
   margin: 10px auto;
   border: none;
   border-radius: 14px;
   backdrop-filter: blur(25px);
-  background: linear-gradient(135deg, rgba(223, 189, 189, 0.39), rgba(15, 15, 15, 0.4));
+  background: linear-gradient(135deg, rgba(13, 131, 234, 0.39), rgba(15, 15, 15, 0.516));
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
   color: #fff;
   text-align: center;
@@ -79,16 +79,14 @@ h1 {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
   gap: 25px;
 }
 .spanBanner .apiInformation h2 {
   font-size: 0.9rem;
   font-weight: 400;
-  color: #464343;
+  color: #ffffff;
   background: rgba(255, 255, 255, 0.08);
-  border-radius: 6px;
-  padding: 6px 12px;
+  border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
@@ -97,24 +95,30 @@ h1 {
   font-weight: 500;
 }
 
-.buttonAccess {
+.modalAccess {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  gap: 10px;
+  padding: 5px 50px;
+  margin: 0;
 }
-.buttonAccess .btn {
+.modalAccess .btn {
   background-color: rgba(40, 101, 255, 0.614);
   color: #000000;
+  margin: 0;
 }
-.buttonAccess .modal .modal-content .modal-header {
-  background-color: rgba(155, 69, 26, 0.5960784314);
+.modalAccess .modal .modal-content .modal-header {
+  background-color: #146672;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
-.buttonAccess .modal .modal-content .modal-header .modal-title {
-  color: #261111;
+.modalAccess .modal .modal-content .modal-header .modal-title {
+  color: #ffffff;
 }
-.buttonAccess .modal .modal-content .col-12 {
+.modalAccess .modal .modal-content .modal-header .modal-body form {
+  color: #146672;
+}
+.modalAccess .modal .modal-content .col-12 {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -131,18 +135,12 @@ h2 {
 }
 
 .clearDB {
-  margin: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 0%;
   gap: 10px;
-  padding: 5px;
-  /* eliminar este bloque genérico de button que sobrescribe colores */
-  /* button {
-    background-color: rgba(255, 0, 0, 0.797);
-    color: #ffffff;
-  } */
 }
 
 .warningDB {
@@ -150,7 +148,8 @@ h2 {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: red;
+  background-color: rgba(255, 0, 0, 0.46);
+  border-radius: 20px;
   color: #000000;
   font-weight: normal;
   padding: 10px;
@@ -161,23 +160,48 @@ h2 {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: rgb(255, 149, 0);
+  background-color: rgba(255, 149, 0, 0.485);
   color: #000000;
   font-weight: normal;
   padding: 10px;
+  border-radius: 20px;
 }
 
 .spanBanner1 {
-  padding: 17px;
+  padding: 10px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 10px;
-  color: #261111;
-  background-color: rgba(57, 92, 205, 0.605);
+  color: #ffffff;
   width: 100%;
   height: 100%;
+}
+
+.btContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: end;
+  padding: 15px;
+  gap: 10px;
+}
+
+.btContainer1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+
+.saveChange {
+  padding: 10px;
+  justify-content: end;
+  border-radius: 20px;
+  background-color: #042137;
+  color: #ffffff;
 }
 
 .nightModeButton {
@@ -190,6 +214,53 @@ h2 {
   transform: scale(1.2);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   border-radius: 50%;
+}
+
+.main-section,
+.content,
+.section {
+  margin: 0;
+  padding: 0;
+}
+
+.buttonPlus {
+  background-color: transparent;
+  border: none;
+  color: #0d6efd;
+}
+.buttonPlus:hover svg {
+  color: #ffffff;
+  transform: scale(1.1);
+  transition: 0.2s ease;
+}
+
+.buttonPlus svg {
+  height: 60px;
+  width: 60px;
+}
+
+.principalButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.buttonDB {
+  background-color: transparent;
+  border: none;
+  color: #0d6efd;
+}
+.buttonDB:hover svg {
+  color: #c91616;
+  transform: scale(1.1);
+  transition: 0.2s ease;
+}
+
+.buttonDB svg {
+  height: 60px;
+  width: 60px;
 }
 
 body.nightModeStyle {
@@ -225,13 +296,34 @@ body.nightModeStyle .styleHeader .nightModeHeader:hover {
   stroke: #ffffff;
 }
 
+.dashboardContainer {
+  display: grid;
+  grid-template-areas: "newUsers newUsers" "searchStyle taksAndEdit";
+  justify-content: center;
+  align-items: center;
+  padding: 0px 90px;
+  gap: 10px;
+  padding-bottom: 30px;
+}
+
+.newUsers {
+  grid-area: newUsers;
+}
+
+.searchStyle {
+  grid-area: searchStyle;
+}
+
+.taksAndEdit {
+  grid-area: taksAndEdit;
+}
+
 .newUsers {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background: none;
-  padding: 30px;
   border-radius: 20px;
 }
 .newUsers h2 {
@@ -295,15 +387,15 @@ body.nightModeStyle .styleHeader .nightModeHeader:hover {
 .searchStyle {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-around;
+  align-items: start;
+  margin: 0;
   background-color: none;
-  padding: 30px;
   border-radius: 20px;
 }
 .searchStyle h2 {
   color: #ffffff;
-  margin-bottom: 1rem;
+  margin: 0;
 }
 .searchStyle form {
   background-color: rgba(15, 148, 168, 0.6117647059);
@@ -343,10 +435,9 @@ body.nightModeStyle .styleHeader .nightModeHeader:hover {
 .taksAndEdit {
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: space-around;
   align-items: start;
-  padding: 30px;
-  margin: 2rem auto;
+  margin: 0;
   max-width: 800px;
   background-color: rgba(15, 148, 168, 0.6117647059);
   border-radius: 20px;
@@ -355,7 +446,7 @@ body.nightModeStyle .styleHeader .nightModeHeader:hover {
 }
 .taksAndEdit h2 {
   color: #ffffff;
-  margin-bottom: 1rem;
+  margin: 1rem;
 }
 .taksAndEdit table {
   background-color: #1c1c1c;
@@ -409,7 +500,9 @@ body.nightModeStyle .styleHeader .nightModeHeader:hover {
   padding: 30px;
 }
 .editTask .modal-header {
-  background-color: rgba(228, 87, 22, 0.3803921569);
+  background-color: #146672;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
 }
 .editTask .modal-header .modal-title .form-select {
   padding: 10px;
@@ -423,13 +516,12 @@ body.nightModeStyle .styleHeader .nightModeHeader:hover {
 
 /* CONTENEDOR PRINCIPAL */
 .f-container {
-  padding-top: 10px;
-  padding-bottom: 60px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding-top: 100px;
+  padding-top: 20px;
+  padding-bottom: 40px;
 }
 
 /* LOGO + TEXTOS + ICONOS */
@@ -474,15 +566,15 @@ body.nightModeStyle .styleHeader .nightModeHeader:hover {
   width: 30px;
   height: 30px;
   stroke-width: 1px;
-  stroke: rgba(0, 0, 0, 0.9); /* $icon-stroke-color */
-  fill: rgba(6, 45, 60, 0.539); /* $icon-fill-color */
+  stroke: rgb(254, 254, 254); /* $icon-stroke-color */
+  fill: rgba(255, 255, 255, 0.539); /* $icon-fill-color */
 }
 
 /* ICONO DEL CÍRCULO DE INSTAGRAM */
 .circle-icon {
-  stroke: #000000;
+  stroke: #ffffff;
   stroke-width: 1px;
-  fill: rgba(255, 255, 255, 0.9137254902);
+  fill: rgba(255, 89, 0, 0.9137254902);
 }
 
 /*# sourceMappingURL=style.css.map */
