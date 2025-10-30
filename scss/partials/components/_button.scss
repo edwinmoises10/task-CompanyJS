@@ -1,3 +1,4 @@
+@use "../utilities/mixins";
 .nightModeButton {
   border-radius: 50%;
   background: none;
@@ -9,3 +10,48 @@
     border-radius: 50%;
   }
 }
+
+.main-section,
+.content,
+.section {
+  margin: 0;
+  padding: 0;
+}
+.buttonPlus {
+  background-color: transparent;
+  border: none; 
+  color: #0d6efd; 
+  &:hover svg {
+    color: #ffffff; 
+    transform: scale(1.1);
+    transition: 0.2s ease;
+  }
+}
+
+.buttonPlus svg {
+  height: 60px;
+  width: 60px;
+}
+
+.principalButton {
+  @include mixins.general-flex(row, center, center);
+
+  margin: 0;
+}
+
+.buttonDB {
+  background-color: transparent;
+  border: none; 
+  color: #0d6efd; 
+  &:hover svg {
+    color: #c91616; 
+    transform: scale(1.1);
+    transition: 0.2s ease;
+  }
+}
+
+.buttonDB svg {
+  height: 60px;
+  width: 60px;
+}
+

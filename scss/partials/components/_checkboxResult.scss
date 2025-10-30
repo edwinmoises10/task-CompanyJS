@@ -1,9 +1,30 @@
 @use "../utilities/mixins";
 
+.dashboardContainer {
+  display: grid;
+  grid-template-areas:
+    "newUsers newUsers"
+    "searchStyle taksAndEdit";
+  justify-content: center;
+  align-items: center;
+  padding: 0px 90px;
+  gap: 10px;
+  padding-bottom: 30px;
+}
+
+.newUsers {
+  grid-area: newUsers;
+}
+.searchStyle {
+  grid-area: searchStyle;
+}
+.taksAndEdit {
+  grid-area: taksAndEdit;
+}
+
 .newUsers {
   @include mixins.general-flex(column, center, center);
   background: none;
-  padding: 30px;
   border-radius: 20px;
 
   h2 {
@@ -72,16 +93,16 @@
 
 /////////search bar
 .searchStyle {
-  @include mixins.general-flex(column, center, center);
+  @include mixins.general-flex(column, space-around, start);
+  margin: 0;
   background-color: none;
-  padding: 30px;
   border-radius: 20px;
 
   h2 {
     color: #ffffff;
-    margin-bottom: 1rem;
+    margin: 0;
   }
-
+  //
   form {
     background-color: #0f94a89c;
     padding: 20px;
@@ -128,9 +149,8 @@
 ///
 
 .taksAndEdit {
-  @include mixins.general-flex(column, start, start);
-  padding: 30px;
-  margin: 2rem auto;
+  @include mixins.general-flex(column, space-around, start);
+  margin: 0;
   max-width: 800px;
   background-color: #0f94a89c;
   border-radius: 20px;
@@ -139,7 +159,7 @@
 
   h2 {
     color: #ffffff;
-    margin-bottom: 1rem;
+    margin: 1rem;
   }
 
   table {
@@ -197,8 +217,9 @@
   @include mixins.general-flex(column, center, center);
   padding: 30px;
   .modal-header {
-    background-color: #e4571661;
-
+    background-color: #146672;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: #ffffff;
     .modal-title {
       .form-select {
         padding: 10px;

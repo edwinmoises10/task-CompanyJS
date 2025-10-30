@@ -41,17 +41,32 @@
             <section id="buttonNM" class="nightModeButton">
             </section>
         </section>
-        <section id="news" class="spanBanner"></section>
 
         <h1>Company Tasks</h1>
     </header>
 
     <main>
-        <!-- user registration -->
-        <section class="buttonAccess">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">
-                User Registration</button>
 
+        <section class="principalButton">
+            <button type="button" class="buttonPlus btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">
+                <!-- ícono SVG -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" width="24" height="24" style="vertical-align:middle; margin-right:6px;">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+            </button>
+
+            <button type="button" class="buttonPlus btn-primary" data-bs-toggle="modal"
+                data-bs-target="#loginModal"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                </svg>
+            </button>
+        </section>
+        <!-- user registration -->
+        <section class="modalAccess">
             <!-- Modal -->
             <div class="modal fade" id="registerModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                 aria-labelledby="registerModalLabel" aria-hidden="true">
@@ -63,19 +78,18 @@
                                 aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-
-                            <form class="row g-3">
-                                <div class="col-md-4">
+                            <form class="row g-2">
+                                <div class="col-md-6">
                                     <label for="firstName" class="form-label">First name</label>
                                     <input autocomplete="username" type="text" class="form-control" id="firstName"
                                         required>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <label for="lastName" class="form-label">Last name</label>
                                     <input autocomplete="username" type="text" class="form-control" id="lastName"
                                         required>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <label for="userPassword" class="form-label">Password</label>
                                     <div class="input-group">
                                         <input maxlength="8" placeholder="8 characters max"
@@ -83,7 +97,6 @@
                                             id="userPassword" aria-describedby="inputGroupPrepend2" required>
                                     </div>
                                 </div>
-
                                 <div class="col-md-6">
                                     <label for="workArea" class="form-label">Work Area</label>
                                     <select class="form-select" id="workArea" required>
@@ -111,10 +124,10 @@
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button id="saveInf" class="btn btn-primary" type="submit">Save Information</button>
+                                    <button id="saveInf" class="saveChange btn-primary" type="submit">Save
+                                        Information</button>
                                 </div>
                             </form>
-
                         </div>
                     </div>
                 </div>
@@ -122,9 +135,6 @@
 
             <!-- Login Session -->
             <!-- new code  -->
-
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
-                Log In</button>
 
             <!-- Modal -->
             <div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -137,10 +147,9 @@
                                 aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-
                             <!-- code -->
                             <form>
-                                <div class="row mb-3">
+                                <div class="row mb-2">
                                     <label for="operatorEmail" class="col-sm-2     col-form-label">Email</label>
                                     <div class="col-sm-10">
                                         <input autocomplete="username" placeholder="Type your Email Complete"
@@ -154,7 +163,11 @@
                                             id="passwordloggin" placeholder="Type your Password">
                                     </div>
                                 </div>
-                                <button id="checkLoggin" type="button" class="btn bnt2 btn-primary">Sign in</button>
+                                <div class="btContainer1">
+                                    <button id="checkLoggin" type="button" class="saveChange btn-primary">Sign
+                                        in</button>
+                                </div>
+
                             </form>
                             <br>
                             <div class="form-floating mb-3">
@@ -164,11 +177,11 @@
                                     Task</label>
                             </div>
 
-                            <button id="saveTask" type="button" class="btn btn-primary" disabled>Create Task</button>
-
-
+                            <div class="btContainer1">
+                                <button id="saveTask" type="button" class="saveChange btn-primary" disabled>Create
+                                    Task</button>
+                            </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -185,7 +198,7 @@
                     </div>
                     <div class="modal-body">
 
-                        <form class="row g-3">
+                        <form class="row g-2">
                             <div class="col-md-4">
                                 <label for="firstNameDB" class="form-label">First name</label>
                                 <input autocomplete="username" type="text" class="form-control" id="firstNameDB"
@@ -218,9 +231,11 @@
                                 </select>
                             </div>
 
-                            <div class="col-12">
-                                <button id="saveChanges" class="btn btn-primary" type="submit">Save Changes</button>
-                                <button id="deleteOperator" class="btn btn-primary" type="submit">Delete User</button>
+                            <div class="btContainer col-14">
+                                <button id="saveChanges" class="saveChange btn-primary" type="submit">Save
+                                    Changes</button>
+                                <button id="deleteOperator" class="saveChange btn-primary" type="submit">Delete
+                                    User</button>
                             </div>
                         </form>
 
@@ -231,72 +246,82 @@
 
 
         <!-- new User -->
-        <section class="newUsers">
-            <!-- Data Results -->
-            
-                <h2>Personal Team</h2>
+        <!-- div container -->
+        <div class="dashboardContainer">
+            <section class="newUsers">
+                <!-- Data Results -->
+                <h1>Personal Team</h1>
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Operator Name</th>
-                            <th scope="col">Username</th>
-                            <th scope="col">Work Area</th>
-                            <th scope="col">Operator Email</th>
-                            <th scope="col">Operator Code</th>
-                            <th scope="col">Date of Entry</th>
+                            <th class="titleTable" scope="col">ID</th>
+                            <th class="titleTable" scope="col">Operator Name</th>
+                            <th class="titleTable" scope="col">Username</th>
+                            <th class="titleTable" scope="col">Work Area</th>
+                            <th class="titleTable" scope="col">Operator Email</th>
+                            <th class="titleTable" scope="col">Operator Code</th>
+                            <th class="titleTable" scope="col">Date of Entry</th>
                         </tr>
                     </thead>
                     <tbody id="values"></tbody>
                 </table>
-        </section>
+            </section>
 
 
-        <section class="searchStyle">
+            <section class="searchStyle">
+                <form class="row g-3">
+                    <h2>Search Personal</h2>
+                    <div class="col-md-6">
+                        <label for="searchPersonalValuelive" class="form-label"></label>
+                        <input type="text" class="form-control" id="searchPersonalValuelive" required
+                            placeholder="Enter a Name">
+                    </div>
 
-            <form class="row g-3">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Operator Name</th>
+                                <th scope="col">Code</th>
+                                <th scope="col">Email</th>
+                            </tr>
+                        </thead>
+                        <tbody id="operatorFoundlive"></tbody>
+                    </table>
+            </section>
 
-                <h2>Search Personal</h2>
-
-                <div class="col-md-6">
-                    <label for="searchPersonalValuelive" class="form-label"></label>
-                    <input type="text" class="form-control" id="searchPersonalValuelive" required
-                        placeholder="Enter a Name">
-                </div>
-
+            <section class="taksAndEdit">
+                <h2>Pending Tasks</h2>
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th scope="col">ID</th>
+                            <th scope="col">Task Number: </th>
                             <th scope="col">Operator Name</th>
-                            <th scope="col">Code</th>
-                            <th scope="col">Email</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Edit</th>
                         </tr>
                     </thead>
-                    <tbody id="operatorFoundlive"></tbody>
+                    <tbody id="pendingTask"></tbody>
                 </table>
+            </section>
+        </div>
+
+        <!-- Clear DB -->
+        <section class="clearDB">
+            <button id="clearInformationDB" type="button" class="buttonDB"><svg xmlns="http://www.w3.org/2000/svg"
+                    fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
+                </svg>
+            </button>
         </section>
+        <br>
+        <!-- API Service -->
+        <section id="news" class="spanBanner"></section>
 
-
-        <section class="taksAndEdit">
-            <h2>Pending Tasks</h2>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Task Number: </th>
-                        <th scope="col">Operator Name</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Edit</th>
-
-                    </tr>
-                </thead>
-                <tbody id="pendingTask"></tbody>
-            </table>
-
-        </section>
-        <!-- edit Task -->
+        <!-- Edit Task -->
         <section class="editTask">
             <!-- Button trigger modal -->
             <!-- Modal -->
@@ -309,7 +334,6 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <!-- edit text area -->
                             <div class="form-floating mb-3">
                                 <textarea class="form-control" id="textArea1" style="height: 100px"></textarea>
                                 <label for="textArea1" id="dataOperator"></label>
@@ -325,26 +349,13 @@
                         </div>
                         <div class="modal-footer">
                             <!-- delete task -->
-                            <button id="deleteTask" type="button" class="btn btn-primary">Delete Task</button>
-
-                            <button id="editTaskSave" type="button" class="btn btn-primary">Save changes</button>
+                            <button id="deleteTask" type="button" class="saveChange btn-primary">Delete Task</button>
+                            <button id="editTaskSave" type="button" class="saveChange btn-primary">Save changes</button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
-
-
-
-        <section class="clearDB">
-            <span id="news1" class="spanBanner1"></span>
-
-            <button id="clearInformationDB" type="button" class="btn btn-primary">Borrar DB</button>
-        </section>
-
-        <br>
-
 
 
     </main>
