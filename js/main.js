@@ -1,5 +1,3 @@
-
-
 // CheckInputs Only Strings
 
 const stringCheck = (valueString) => {
@@ -26,7 +24,6 @@ class PersonalTeam {
         this.password = password
         this.workArea = workArea
         this.entryDate = entryDate
-
         // EMAIL
         this.email = `${this.firstName.trim().charAt(0).toLowerCase()}${this.lastName.trim().toLowerCase()}@company.com`
         // CODE OPERATOR 
@@ -51,7 +48,6 @@ const updateLocalStorageUser = (user) => {
 if (personalTeam.length > 0) {
     PersonalTeam.id = personalTeam[personalTeam.length - 1].id
 }
-
 let firstName = document.getElementById("firstName")
 let lastName = document.getElementById("lastName")
 // Check input only letters
@@ -61,7 +57,6 @@ firstName.oninput = () => {
 lastName.oninput = () => {
     stringCheck(lastName)
 }
-
 let userPassword = document.getElementById("userPassword")
 let workArea = document.getElementById("workArea")
 let entryDate = document.getElementById("entryDate")
@@ -69,12 +64,9 @@ let saveInf = document.getElementById("saveInf")
 let termsConditions = document.getElementById("termsConditions")
 
 // Icon Edit
-
 let icon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pencil-icon lucide-pencil"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/></svg>`
 
-
 // Validate duplicate user or email
-
 const checkUserMail = (firstName, lastName) => {
 
     const emailCheck = `${firstName.trim().charAt(0).toLowerCase()}${lastName.trim().toLowerCase()}@company.com`
@@ -91,7 +83,6 @@ const checkUserMail = (firstName, lastName) => {
 }
 
 const newUser = () => {
-
     saveInf.onclick = (e) => {
         e.preventDefault()
         if (!termsConditions.checked || !firstName.value || !lastName.value) {
@@ -106,23 +97,17 @@ const newUser = () => {
             return
         }
         const person = new PersonalTeam(firstName.value, lastName.value, userPassword.value, workArea.value, entryDate.value)
-
         // save information to Array 
         personalTeam.push(person)
         // save information to DB 
         localStorage.setItem("personalTeam", JSON.stringify(personalTeam))
         result()
-
         const modal = bootstrap.Modal.getInstance(document.getElementById("registerModal"))
             || new bootstrap.Modal(document.getElementById("registerModal"))
         modal.hide()
-
         userCreateAlert(person)
-
         document.querySelector("#registerModal form").reset();
-
     }
-
 }
 
 const editDeleteOperator = (operationUserEdit, editFirstName, editlastName, pass, workAreaEdit) => {
@@ -131,9 +116,7 @@ const editDeleteOperator = (operationUserEdit, editFirstName, editlastName, pass
     operationUserEdit.lastName = editlastName
     operationUserEdit.password = pass
     operationUserEdit.workArea = workAreaEdit
-
     updateLocalStorageUser(operationUserEdit)
-
 }
 
 let values = document.getElementById("values")
@@ -142,7 +125,6 @@ values.classList.add("personalTeamCheckbox")
 // Results
 const result = () => {
     let message = ""
-
     personalTeam.forEach(person => {
         message +=
             `
@@ -161,7 +143,6 @@ const result = () => {
     values.innerHTML = message
 
     // Edit - remove operator
-
     let editOperator = document.querySelectorAll(".editOperator")
     let firstNameDB = document.getElementById("firstNameDB")
     let lastNameDB = document.getElementById("lastNameDB")
@@ -178,12 +159,10 @@ const result = () => {
         stringCheck(lastNameDB)
     }
 
-
     editOperator.forEach(operator => {
         operator.onclick = (e) => {
 
             const operatorID = Number(e.currentTarget.getAttribute("id"))
-
             const operatorInformation = personalTeam.find(operatorInfo => operatorInfo.id === operatorID)
 
             if (operatorInformation) {
@@ -218,7 +197,6 @@ const result = () => {
                     edituserCreateAlert(operatorInformation).then(() => {
                         result()
                     })
-
                 }
 
                 deleteOperator.onclick = (e) => {
@@ -228,11 +206,8 @@ const result = () => {
                     if (indexOperator > -1) {
                         personalTeam.splice(indexOperator, 1)
                         localStorage.setItem("personalTeam", JSON.stringify(personalTeam))
-
                         result()
                         taskCreated()
-
-
                     }
 
                     localStorage.setItem("personalTeam", JSON.stringify(personalTeam))
@@ -244,10 +219,7 @@ const result = () => {
                     operatorDelete(operatorInformation).then(() => {
                         result()
                     })
-
                 }
-
-
             }
         }
     })
@@ -352,11 +324,7 @@ const logginSesion = () => {
             if (textValidation) {
                 createNewTask(loginUser, textValidation)
                 textArea.value = ""
-
                 hideModalLogin()
-
-
-
                 saveTask.blur()
                 textArea.disabled = false
                 saveTask.disabled = false
@@ -381,17 +349,14 @@ btnClose.onclick = () => {
     btnClose.blur(); // quita el foco antes de que Bootstrap cierre
 };
 
-
 const xmodal = document.getElementById("xmodal")
 xmodal.onclick = () => {
     operatorEmail.value = ""
     passwordloggin.value = ""
 }
-
 logginSesion()
 
 // Edit - Delete task 
-
 const taskCreated = () => {
 
     let pendingTask = document.getElementById("pendingTask")
@@ -472,12 +437,6 @@ const taskCreated = () => {
                                 });
                             }
                         })
-
-
-
-
-
-
                     }
                 }
             }
@@ -487,7 +446,7 @@ const taskCreated = () => {
 
 taskCreated()
 
-// AQUI Delete DB 
+// Delete DB 
 const validationDeleteDB = () => {
 
     // let news1 = document.getElementById("news1")
@@ -510,7 +469,6 @@ const validationDeleteDB = () => {
                 operatorFoundlive.innerHTML = ""
                 localStorage.clear("personalTeam")
                 //localStorage.removeItem("personalTeam")
-                
                 taskCreated()
                 result()
                 dbClearOperators()
@@ -612,7 +570,6 @@ exitX.onclick = () => {
 }
 
 // CLEAR DB
-
 function clearDBAlert() {
     return Swal.fire({
         icon: "warning",
@@ -654,7 +611,6 @@ function dbNull() {
     });
 }
 // Functions
-
 validationDeleteDB()
 newUser()
 result()
