@@ -182,7 +182,7 @@ const result = () => {
 
                 firstNameDB.value = operatorInformation.firstName
                 lastNameDB.value = operatorInformation.lastName
-                userPasswordDB.value = operatorInformation.userPassword
+                userPasswordDB.value = operatorInformation.password
                 workAreaDB.value = operatorInformation.workArea
 
                 saveChanges.onclick = (e) => {
